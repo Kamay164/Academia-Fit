@@ -42,10 +42,16 @@ Criar uma **landing page moderna para a +Fit**, uma academia **fictícia**, dest
 | Deploy | Vercel, com repositório no GitHub |
 | Imagens | Bancos gratuitos (Unsplash / Pexels), com crédito e licença registrados |
 | Identidade visual | Direção B · "Juntos" (branco + grafite + lima, Bricolage Grotesque + Inter) — ver `docs/design-system.md` |
+| Conteúdo | Etapa 2 — `docs/conteudo.md` (leitura) e `src/data/` (fonte de verdade, tipado) |
+| Localização fictícia | Savassi, Belo Horizonte – MG ("Rua do Movimento, 1000"); telefone `(31) 90000-0000`, e-mail `@maisfit.example` |
+| Modalidades | Musculação guiada · Funcional & Cross · Aulas coletivas · Boxe & Lutas |
+| Tom de voz | Próximo e motivador ("a gente", "junto", "bora") — regras em `docs/conteudo.md` |
 | Fontes | Auto-hospedadas via Fontsource (`@fontsource-variable/bricolage-grotesque`, `@fontsource-variable/inter`) |
 | Repositório | GitHub `Kamay164/Academia-Fit`, branch `main` (HTTPS). Commits e push são feitos pelo Vinicius no terminal do Antigravity |
 
-**Ainda não definido (perguntar, não inventar):** nome/handle de redes sociais, endereço, telefone, preços dos planos, horários, nomes de professores, biblioteca de animação, domínio próprio. Enquanto não houver resposta, use conteúdo fictício **claramente marcado** como `// TODO: confirmar`.
+**Dados de negócio:** o Vinicius autorizou dados **fictícios e plausíveis** (preços, horários, números, depoimentos), já definidos em `src/data/`. Não criar dados novos fora deles sem perguntar. Perfis de redes sociais apontam para `#`; nada deve apontar para pessoas, endereços ou contas reais.
+
+**Ainda não definido (perguntar, não inventar):** link de portfólio do rodapé, biblioteca de animação, domínio próprio.
 
 ## 4. Tecnologias
 
@@ -215,8 +221,9 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | Etapa | Status |
 |---|---|
 | 0 Setup | ✅ Concluída |
-| 1 Identidade visual | ⏳ Entregue, aguardando aprovação |
-| 2 – 10 | Não iniciadas |
+| 1 Identidade visual | ✅ Concluída (Direção B · Juntos) |
+| 2 Conteúdo e copy | ⏳ Entregue, aguardando aprovação |
+| 3 – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 
