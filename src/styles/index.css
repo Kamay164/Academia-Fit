@@ -1,3 +1,117 @@
 @import 'tailwindcss';
 
-/* Tokens do design system serão definidos na Etapa 1 (@theme). */
+/*
+ * +Fit — Design system (Direção B · "Juntos")
+ * Documentação completa: docs/design-system.md
+ * Regra: use apenas estes tokens. A paleta padrão do Tailwind foi desligada.
+ */
+
+@theme {
+  /* ---------- Cores ---------- */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-ink: #0e1311; /* Grafite — texto principal e blocos escuros */
+  --color-ink-soft: #1a211e; /* Cards e superfícies sobre fundo escuro */
+  --color-moss: #56605b; /* Texto secundário sobre claro (6.5:1) */
+  --color-stone: #8a948f; /* Bordas de inputs e ícones discretos (3.1:1) */
+  --color-fog: #a9b3ae; /* Texto secundário sobre escuro (8.7:1) */
+  --color-line: #e3e7e4; /* Divisórias e bordas decorativas */
+  --color-mist: #f3f5f2; /* Fundo alternativo de seções claras */
+  --color-lime: #c8f031; /* Destaque — fundos e texto SOMENTE sobre ink */
+  --color-lime-strong: #b5db22; /* Hover do destaque */
+  --color-lime-deep: #3f6b00; /* Texto "verde" sobre fundo claro (6.3:1) */
+  --color-error: #c0261a; /* Erros sobre claro (5.9:1) */
+  --color-error-on-dark: #ff7a6b; /* Erros sobre escuro (7.4:1) */
+
+  /* ---------- Tipografia ---------- */
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: clamp(2.75rem, 1.5rem + 5.2vw, 5.75rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+  --text-h1: clamp(2.25rem, 1.4rem + 3.4vw, 4rem);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -0.025em;
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.14em;
+
+  /* ---------- Espaço e layout ---------- */
+  --spacing-section: clamp(5rem, 3.5rem + 6vw, 9rem); /* py-section */
+  --spacing-gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem); /* px-gutter */
+  --container-content: 76rem; /* max-w-content (1216px) */
+  --container-prose: 40rem; /* max-w-prose para parágrafos */
+
+  /* ---------- Raios ---------- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem; /* cards */
+  --radius-xl: 1.75rem; /* fotos e blocos grandes */
+
+  /* ---------- Sombras ---------- */
+  --shadow-soft: 0 1px 2px rgb(14 19 17 / 0.06), 0 8px 24px rgb(14 19 17 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(14 19 17 / 0.06), 0 20px 48px rgb(14 19 17 / 0.12);
+
+  /* ---------- Movimento ---------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-lime);
+    color: var(--color-ink);
+  }
+
+  /* Foco visível: grafite sobre claro, lima sobre escuro (use data-surface="dark") */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  [data-surface='dark'] :focus-visible {
+    outline-color: var(--color-lime);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

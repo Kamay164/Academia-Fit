@@ -41,7 +41,9 @@ Criar uma **landing page moderna para a +Fit**, uma academia **fictícia**, dest
 | Idioma do site | Português (PT-BR) |
 | Deploy | Vercel, com repositório no GitHub |
 | Imagens | Bancos gratuitos (Unsplash / Pexels), com crédito e licença registrados |
-| Identidade visual | Não existe — será criada do zero na Etapa 1 |
+| Identidade visual | Direção B · "Juntos" (branco + grafite + lima, Bricolage Grotesque + Inter) — ver `docs/design-system.md` |
+| Fontes | Auto-hospedadas via Fontsource (`@fontsource-variable/bricolage-grotesque`, `@fontsource-variable/inter`) |
+| Repositório | GitHub `Kamay164/Academia-Fit`, branch `main` (HTTPS). Commits e push são feitos pelo Vinicius no terminal do Antigravity |
 
 **Ainda não definido (perguntar, não inventar):** nome/handle de redes sociais, endereço, telefone, preços dos planos, horários, nomes de professores, biblioteca de animação, domínio próprio. Enquanto não houver resposta, use conteúdo fictício **claramente marcado** como `// TODO: confirmar`.
 
@@ -68,7 +70,10 @@ Academia +FIT/
 ├── public/
 │   └── favicon.svg
 ├── src/
-│   ├── assets/images/       # imagens otimizadas (.webp/.avif)
+│   ├── assets/
+│   │   ├── brand/           # logo.svg, logo-dark.svg, symbol.svg (Etapa 1)
+│   │   └── images/          # imagens otimizadas (.webp/.avif)
+│   ├── styleguide/          # TEMPORÁRIO (Etapa 1) — remover na Etapa 4
 │   ├── components/
 │   │   ├── ui/              # Button, Container, SectionTitle, Badge...
 │   │   └── layout/          # Navbar, Footer
@@ -126,7 +131,7 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 - **Modelo:** Sonnet · `medium` para curadoria; Haiku · `low` para conversão em lote e geração da tabela de créditos.
 
 ### Etapa 4 — Layout base e componentes de UI
-- **Entregáveis:** `Container`, `Button` (variantes), `SectionTitle`, `Badge`, `Navbar` (com menu mobile acessível), `Footer`, scroll suave por âncoras.
+- **Entregáveis:** `Container`, `Button` (variantes), `SectionTitle`, `Badge`, `Logo`, `Navbar` (com menu mobile acessível), `Footer`, scroll suave por âncoras. Remover `src/styleguide/` e fazer `App.tsx` renderizar a landing page.
 - **Verificação:** componentes usam apenas tokens do design system; navbar funciona com teclado e em 375px; build e lint sem erros.
 - **Modelo:** Sonnet · esforço `medium`.
 
@@ -182,7 +187,8 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 ## 9. Padrões de trabalho
 
 - **Código:** componentes funcionais pequenos, um componente por arquivo, nomes em inglês para código (`HeroSection.tsx`) e conteúdo em PT-BR em `src/data/`.
-- **Estilo:** Tailwind com tokens do tema; evitar valores arbitrários (`[13px]`) sem motivo; mobile-first.
+- **Estilo:** Tailwind usando **somente** os tokens de `src/styles/index.css` (a paleta padrão do Tailwind está desligada); evitar valores arbitrários (`[13px]`) sem motivo; mobile-first. Regras de cor e tipografia em `docs/design-system.md` — destaque: **lima nunca como texto sobre fundo claro** e blocos escuros levam `data-surface="dark"`.
+- **Validação:** o Vinicius testa pela Vercel (não roda o site localmente). Antes de entregar uma etapa, rodar `npm run lint` e `npm run build` no ambiente do Claude para garantir que o deploy não quebre.
 - **Conteúdo separado da apresentação:** textos e listas sempre em `src/data/`.
 - **Acessibilidade desde o início**, não só na Etapa 7.
 - **Commits** (quando autorizados): Conventional Commits em PT-BR, ex.: `feat: adiciona seção hero`.
@@ -204,7 +210,15 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 - [ ] Nenhum `TODO` sem decisão.
 - [ ] README de portfólio completo e deploy público na Vercel funcionando.
 
-## 11. Guia rápido de modelos e esforço
+## 11. Status das etapas
+
+| Etapa | Status |
+|---|---|
+| 0 Setup | ✅ Concluída |
+| 1 Identidade visual | ⏳ Entregue, aguardando aprovação |
+| 2 – 10 | Não iniciadas |
+
+## 12. Guia rápido de modelos e esforço
 
 | Fase | Modelo | Esforço |
 |---|---|---|
