@@ -143,29 +143,44 @@ export const modalityPhotos: Record<'musculacao' | 'funcional' | 'coletivas' | '
 }
 
 /**
- * Estrutura — 3 fotos. Falta a do ringue/área de lutas: a candidata do Unsplash tinha a marca
- * "Temple" em toda parte e foi descartada. Ao baixar outra, adicione aqui como "estrutura-4".
+ * Estrutura — 5 fotos enviadas pelo Vinicius (autores a confirmar, veja docs/creditos-imagens.md).
+ * Marcas de equipamentos seguem visíveis.
  */
+const FACILITY_CREDIT: PhotoCredit = { author: 'Autor a confirmar', url: 'https://unsplash.com' }
 export const facilityPhotos: Photo[] = [
   photo(
     'estrutura-1',
-    [640, 1100],
+    [640, 1100, 1600],
     [16, 10],
-    'Sala de treino com piso de madeira, esteira, bicicleta ergométrica e janelões com vista da cidade',
-    unsplash('Aalo Lens', 'fuyulf8cNmg'),
+    'Salão de musculação amplo com máquinas, escadas e janelas altas de vidro',
+    FACILITY_CREDIT,
   ),
   photo(
     'estrutura-2',
-    [640, 1100],
+    [640, 1100, 1600],
     [16, 10],
-    'Amplo salão de musculação com racks, anilhas coloridas e linhas de luz no teto',
-    unsplash('Jinish Shah', 'GNWUPn44-eg'),
+    'Área de halteres com rack de pesos, bancos e espelhos ao fundo',
+    FACILITY_CREDIT,
   ),
   photo(
     'estrutura-3',
-    [640, 1100],
+    [640, 1100, 1600],
     [16, 10],
-    'Área de musculação com racks e bancos, onde três pessoas treinam com barras',
-    unsplash('Kobe Kian Clata', 'bYe3FbB4ReY'),
+    'Pista de grama sintética vermelha com bicicletas de ar e equipamentos de funcional',
+    FACILITY_CREDIT,
+  ),
+  photo(
+    'estrutura-4',
+    [640, 1100, 1600],
+    [16, 10],
+    'Plataforma de levantamento olímpico com barras e anilhas',
+    FACILITY_CREDIT,
+  ),
+  photo(
+    'estrutura-5',
+    [640, 1100, 1600],
+    [16, 10],
+    'Ringue de boxe com cordas vermelhas e pretas, sacos de pancada e pista de grama sintética ao fundo',
+    FACILITY_CREDIT,
   ),
 ]

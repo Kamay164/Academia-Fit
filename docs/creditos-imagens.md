@@ -6,28 +6,27 @@ Todas as fotos vêm do [Unsplash](https://unsplash.com) e são usadas sob a [Uns
 
 ## Fotos em uso
 
-| Uso                     | Arquivos em `src/assets/images/`  | Autor                | Foto no Unsplash                                       | Edição feita                                        |
-| ----------------------- | --------------------------------- | -------------------- | ------------------------------------------------------ | --------------------------------------------------- |
-| Hero                    | `hero-{768,1280,1920}`            | Geert Pieters        | [3RnkZpDqsEI](https://unsplash.com/photos/3RnkZpDqsEI) | Redimensionada (3:2, sem recorte)                   |
-| Comunidade 1            | `comunidade-1-{600,1000}`         | Ashford Marx         | [LIs-2xpMOHA](https://unsplash.com/photos/LIs-2xpMOHA) | Recorte 3:4                                         |
-| Comunidade 2            | `comunidade-2-{600,1000}`         | Victor Freitas       | [nlZTjUZX2qo](https://unsplash.com/photos/nlZTjUZX2qo) | Recorte 4:3                                         |
-| Comunidade 3            | `comunidade-3-{600,1000}`         | Mina Rad             | [bJvDVW26_5Q](https://unsplash.com/photos/bJvDVW26_5Q) | Recorte 4:3                                         |
-| Comunidade 4            | `comunidade-4-{600,1000}`         | Mina Rad             | [15m-orMYuuA](https://unsplash.com/photos/15m-orMYuuA) | Recorte 4:3                                         |
-| Comunidade 5            | `comunidade-5-{600,1000}`         | Mina Rad             | [prbmux92JTU](https://unsplash.com/photos/prbmux92JTU) | Recorte 3:4                                         |
-| Modalidade · Musculação | `modalidade-musculacao-{480,800}` | Sven Mieke           | [Lx_GDv7VA9M](https://unsplash.com/photos/Lx_GDv7VA9M) | Recorte 4:5                                         |
-| Modalidade · Funcional  | `modalidade-funcional-{480,800}`  | Meghan Holmes        | [wy_L8W0zcpI](https://unsplash.com/photos/wy_L8W0zcpI) | Recorte 4:5                                         |
-| Modalidade · Coletivas  | `modalidade-coletivas-{480,800}`  | Trust "Tru" Katsande | [A_ftsTh53lM](https://unsplash.com/photos/A_ftsTh53lM) | Recorte 4:5 (**confirmar autor/link**, veja abaixo) |
-| Modalidade · Lutas      | `modalidade-lutas-{480,800}`      | Eser GOAT            | [wdvQK4lL1u0](https://unsplash.com/photos/wdvQK4lL1u0) | Recorte 4:5 + desfoque de placas e marcas ao fundo  |
-| Estrutura 1             | `estrutura-1-{640,1100}`          | Aalo Lens            | [fuyulf8cNmg](https://unsplash.com/photos/fuyulf8cNmg) | Recorte 16:10                                       |
-| Estrutura 2             | `estrutura-2-{640,1100}`          | Jinish Shah          | [GNWUPn44-eg](https://unsplash.com/photos/GNWUPn44-eg) | Recorte 16:10 (sem a garrafa com marca)             |
-| Estrutura 3             | `estrutura-3-{640,1100}`          | Kobe Kian Clata      | [bYe3FbB4ReY](https://unsplash.com/photos/bYe3FbB4ReY) | Recorte 16:10                                       |
+| Uso                     | Arquivos em `src/assets/images/`   | Autor                | Foto no Unsplash                                       | Edição feita                                             |
+| ----------------------- | ---------------------------------- | -------------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| Hero                    | `hero-{768,1280,1920}`             | Geert Pieters        | [3RnkZpDqsEI](https://unsplash.com/photos/3RnkZpDqsEI) | Redimensionada (3:2, sem recorte)                        |
+| Comunidade 1            | `comunidade-1-{600,1000}`          | Ashford Marx         | [LIs-2xpMOHA](https://unsplash.com/photos/LIs-2xpMOHA) | Recorte 3:4                                              |
+| Comunidade 2            | `comunidade-2-{600,1000}`          | Victor Freitas       | [nlZTjUZX2qo](https://unsplash.com/photos/nlZTjUZX2qo) | Recorte 4:3                                              |
+| Comunidade 3            | `comunidade-3-{600,1000}`          | Mina Rad             | [bJvDVW26_5Q](https://unsplash.com/photos/bJvDVW26_5Q) | Recorte 4:3                                              |
+| Comunidade 4            | `comunidade-4-{600,1000}`          | Mina Rad             | [15m-orMYuuA](https://unsplash.com/photos/15m-orMYuuA) | Recorte 4:3                                              |
+| Comunidade 5            | `comunidade-5-{600,1000}`          | Mina Rad             | [prbmux92JTU](https://unsplash.com/photos/prbmux92JTU) | Recorte 3:4                                              |
+| Modalidade · Musculação | `modalidade-musculacao-{480,800}`  | Sven Mieke           | [Lx_GDv7VA9M](https://unsplash.com/photos/Lx_GDv7VA9M) | Recorte 4:5                                              |
+| Modalidade · Funcional  | `modalidade-funcional-{480,800}`   | Meghan Holmes        | [wy_L8W0zcpI](https://unsplash.com/photos/wy_L8W0zcpI) | Recorte 4:5                                              |
+| Modalidade · Coletivas  | `modalidade-coletivas-{480,800}`   | Trust "Tru" Katsande | [A_ftsTh53lM](https://unsplash.com/photos/A_ftsTh53lM) | Recorte 4:5 (**confirmar autor/link**, veja abaixo)      |
+| Modalidade · Lutas      | `modalidade-lutas-{480,800}`       | Eser GOAT            | [wdvQK4lL1u0](https://unsplash.com/photos/wdvQK4lL1u0) | Recorte 4:5 + desfoque de placas e marcas ao fundo       |
+| Estrutura 1 a 5         | `estrutura-{1..5}-{640,1100,1600}` | **A confirmar**      | Enviadas pelo Vinicius (origem/autor a informar)       | Recorte 16:10; nº 5 editada pelo Vinicius (ringue vazio) |
 
 Todos os arquivos finais são WebP sem metadados (EXIF removido).
 
 ## Pendências
 
 - **Confirmar a foto de aulas coletivas:** o arquivo `_reserva_  bike.jpg` foi identificado como `A_ftsTh53lM` (mulheres em bikes indoor, parede de blocos cinza). Abra o link e confira se é a mesma foto; se não for, corrija o autor aqui e em `src/data/images.ts`.
-- **Faltam:** `comunidade-6` (três amigas na selfie, Mina Rad, [CjYhWeAXB4c](https://unsplash.com/photos/CjYhWeAXB4c)) e uma foto de **ringue/área de lutas** para a Estrutura.
+- **Faltam:** `comunidade-6` (três amigas na selfie, Mina Rad, [CjYhWeAXB4c](https://unsplash.com/photos/CjYhWeAXB4c)).
+- **Estrutura:** informar autor e link das 5 fotos enviadas. Marcas de equipamentos (Hammer Strength, Eleiko, Reebok, Everlast etc.) continuam visíveis; a placa "TNT BOXING" saiu na versão editada do ringue. Dá para desfocar mais, se preferir.
 
 ## Baixadas e não usadas (na pasta `imagens-originais`, fora do Git)
 

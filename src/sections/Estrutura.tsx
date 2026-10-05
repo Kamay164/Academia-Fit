@@ -2,7 +2,7 @@ import { PhotoImage, Section, SectionTitle } from '../components/ui'
 import { facilities, facilityPhotos } from '../data'
 import { reveal, stagger } from '../lib/reveal'
 
-/** Estrutura (#estrutura): fundo escuro, três fotos do espaço e os seis ambientes da academia. */
+/** Estrutura (#estrutura): fundo escuro, cinco fotos do espaço e os seis ambientes da academia. */
 export function Estrutura() {
   return (
     <Section id={facilities.id} tone="dark" labelledBy="estrutura-titulo">
