@@ -79,13 +79,14 @@ Academia +FIT/
 │   ├── assets/
 │   │   ├── brand/           # logo.svg, logo-dark.svg, symbol.svg (Etapa 1)
 │   │   └── images/          # fotos otimizadas em WebP, várias larguras (ex.: hero-1280.webp) — Etapa 3
-│   ├── styleguide/          # TEMPORÁRIO (Etapa 1) — remover na Etapa 4
+│   ├── Preview.tsx          # TEMPORÁRIO (Etapa 4) — placeholders das seções; remover no fim da Etapa 5B
 │   ├── components/
 │   │   ├── ui/              # Button, Container, SectionTitle, Badge...
 │   │   └── layout/          # Navbar, Footer
 │   ├── sections/            # Hero, Manifesto, Comunidade, Modalidades, Estrutura, Depoimentos, Planos, CTA, Contato
 │   ├── data/                # conteúdo em arquivos JS/TS (textos, planos, depoimentos)
-│   ├── hooks/
+│   ├── hooks/               # useScrolled, useActiveSection
+│   ├── lib/                 # cn.ts
 │   ├── styles/index.css
 │   ├── App.tsx
 │   └── main.tsx
@@ -229,7 +230,8 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 1 Identidade visual | ✅ Concluída (Direção B · Juntos) |
 | 2 Conteúdo e copy | ✅ Concluída |
 | 3 Imagens | ⏳ Entregue (13 fotos otimizadas), aguardando aprovação · pendentes: `comunidade-6` e foto de ringue, que o Vinicius baixa depois |
-| 4 – 10 | Não iniciadas |
+| 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks, `Preview.tsx` temporário), aguardando aprovação · `src/styleguide/` deve ser removido à mão (`git rm -r src/styleguide`) |
+| 5A – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 

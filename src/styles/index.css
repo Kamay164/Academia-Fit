@@ -50,6 +50,7 @@
   --spacing-gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem); /* px-gutter */
   --container-content: 76rem; /* max-w-content (1216px) */
   --container-prose: 40rem; /* max-w-prose para parágrafos */
+  --spacing-nav: 4.5rem; /* h-nav · altura da navbar fixa; scroll-mt-nav nas âncoras */
 
   /* ---------- Raios ---------- */
   --radius-sm: 0.5rem;

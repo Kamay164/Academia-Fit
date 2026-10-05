@@ -106,14 +106,47 @@ Fontes auto-hospedadas via Fontsource (`@fontsource-variable/*`), importadas em 
 - Durações: 150–200ms para cor/hover; 300–600ms para entradas.
 - `prefers-reduced-motion` já zera animações no CSS base.
 
-## 7. Botões (referência — componente na Etapa 4)
+## 7. Componentes de UI (Etapa 4)
 
-| Variante   | Fundo claro                                    | Fundo escuro                                               |
+Todos em `src/components/ui/` (importe pelo barrel `index.ts`). Só usam tokens deste documento.
+
+| Componente     | Para quê                                                                                                     |
+| -------------- | ------------------------------------------------------------------------------------------------------------ |
+| `Container`    | `max-w-content` + `px-gutter`, centralizado                                                                  |
+| `Section`      | `<section>` com `py-section` e `scroll-mt-nav`; `tone` light/mist/dark/lime; `dark` já aplica `data-surface` |
+| `SectionTitle` | Eyebrow + título (`Heading` com destaque) + descrição; `tone` light/dark/lime; `as` h1/h2; `size`            |
+| `Button`       | Link (`href`) ou botão; `variant` primary/secondary; `tone` light/dark; `size` md/lg; `arrow`; `fullWidth`   |
+| `Badge`        | Tons lime, ink, mist, outline, glass                                                                         |
+| `Logo`         | `tone` light (fundo claro) ou dark (fundo escuro)                                                            |
+| `SocialIcon`   | Glifos de Instagram, YouTube e TikTok (Lucide não tem logos de marcas)                                       |
+
+Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`.
+
+### Botões
+
+| Variante   | Fundo claro (`tone="light"`)                   | Fundo escuro (`tone="dark"`)                               |
 | ---------- | ---------------------------------------------- | ---------------------------------------------------------- |
 | Primário   | `bg-ink text-white` → hover `bg-ink-soft`      | `bg-lime text-ink` → hover `bg-lime-strong`                |
 | Secundário | `border border-ink text-ink` → hover `bg-mist` | `border border-white/40 text-white` → hover `border-white` |
 
-Formato: `rounded-full px-6 py-3 font-semibold`, ícone opcional à direita (`ArrowRight`, 16px). Área de toque mínima: 44px.
+Pílula, mínimo 44px de altura. O tamanho `lg` é mais compacto no mobile para não estourar o gutter em 375px.
+
+> **Cuidado:** não passe `hidden`/`lg:hidden` em `className` do `Button` (conflita com `inline-flex` sem tailwind-merge). Envolva o botão em uma `div` com a classe de visibilidade.
+
+### Destaque no título (`highlight`)
+
+- Fundo escuro: palavra em `text-lime`.
+- Fundo claro: marca-texto `bg-lime text-ink` (lima nunca como texto sobre claro).
+- Fundo lima: palavra em `bg-ink text-lime`.
+
+### Navbar e âncoras
+
+- Fixa (`h-nav`, `--spacing-nav: 4.5rem`). Transparente com texto branco sobre o hero escuro; vira `bg-white/90 backdrop-blur` com borda após rolar ou ao abrir o menu.
+- Toda `Section` tem `scroll-mt-nav`, então as âncoras não ficam escondidas sob a barra.
+- Seção ativa marcada com `aria-current="location"`.
+- Menu mobile: botão com `aria-expanded`/`aria-controls`, fecha com Esc, clique fora ou ao escolher um link; foco preso no painel enquanto aberto; fecha sozinho ao passar de 1024px.
+- O corpo da página é `<main id="conteudo" tabIndex={-1}>`, alvo do `SkipLink`.
+- Se usar `backdrop-filter` num pai, filhos `fixed` passam a se posicionar nele — por isso o fundo escurecido do menu é `absolute top-full h-dvh`.
 
 ## 8. Acessibilidade
 

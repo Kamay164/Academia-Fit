@@ -1,11 +1,17 @@
-// Etapa 1: exibe o style guide temporário. A landing page substitui isto a partir da Etapa 4.
-import StyleGuide from './styleguide/StyleGuide'
+import { Footer, Navbar, SkipLink } from './components/layout'
+import Preview from './Preview'
 
 function App() {
   return (
-    <main id="top">
-      <StyleGuide />
-    </main>
+    <>
+      <SkipLink />
+      <Navbar />
+      <main id="conteudo" tabIndex={-1} className="outline-none">
+        {/* Etapa 5 substitui a prévia pelas seções reais */}
+        <Preview />
+      </main>
+      <Footer />
+    </>
   )
 }
 
