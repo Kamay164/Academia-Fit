@@ -90,4 +90,4 @@ docs/             design system, conteúdo e créditos das imagens
 - **Fontes:** Bricolage Grotesque e Inter (SIL Open Font License).
 - **Ícones:** [Lucide](https://lucide.dev).
 
-Projeto desenvolvido por Vinicius ([GitHub](https://github.com/Kamay164)), com apoio do Claude.
+Projeto desenvolvido por Vinicius.
