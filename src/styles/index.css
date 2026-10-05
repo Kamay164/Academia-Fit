@@ -126,7 +126,9 @@
     *::after {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
+      animation-delay: 0s !important; /* sem isso, o `both` esconde o elemento durante o atraso */
       transition-duration: 0.01ms !important;
+      transition-delay: 0s !important;
     }
   }
 }

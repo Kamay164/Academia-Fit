@@ -109,7 +109,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-14 hidden lg:block">
         <Container className="flex justify-end">
           <div
-            className="animate-rise bg-ink/55 flex max-w-xs items-start gap-4 rounded-lg border border-white/15 p-5 backdrop-blur-md"
+            className="animate-rise bg-ink/80 flex max-w-xs items-start gap-4 rounded-lg border border-white/15 p-5 backdrop-blur-md"
             style={{ animationDelay: '520ms' }}
           >
             <span className="bg-lime text-ink grid size-10 shrink-0 place-items-center rounded-full">
@@ -117,7 +117,7 @@ export function Hero() {
             </span>
             <div>
               <p className="font-display font-bold">{ritual.title}</p>
-              <p className="mt-1 text-sm leading-snug text-white/80">{ritual.description}</p>
+              <p className="mt-1 text-sm leading-snug text-white/90">{ritual.description}</p>
             </div>
           </div>
         </Container>

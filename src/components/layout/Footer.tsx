@@ -6,6 +6,8 @@ import { SocialIcon } from '../ui/SocialIcon'
 
 const linkClass =
   'text-fog underline-offset-4 transition-colors duration-200 hover:text-white hover:underline'
+/** Links soltos (fora de parágrafos): área de toque de pelo menos 44px de altura. */
+const tapLinkClass = `${linkClass} inline-flex min-h-11 items-center`
 
 /** Rodapé escuro: marca, navegação, contato, redes e aviso de projeto fictício. */
 export function Footer() {
@@ -36,7 +38,7 @@ export function Footer() {
             <ul className="mt-5 flex flex-col gap-3">
               {nav.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={linkClass}>
+                  <a href={link.href} className={tapLinkClass}>
                     {link.label}
                   </a>
                 </li>
@@ -68,13 +70,13 @@ export function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-white" />
-                <a href={contact.whatsapp.href} className={linkClass}>
+                <a href={contact.whatsapp.href} className={tapLinkClass}>
                   WhatsApp {contact.whatsapp.label}
                 </a>
               </li>
               <li className="flex gap-3">
                 <Mail aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-white" />
-                <a href={contact.email.href} className={linkClass}>
+                <a href={contact.email.href} className={tapLinkClass}>
                   {contact.email.label}
                 </a>
               </li>
@@ -88,16 +90,22 @@ export function Footer() {
             <p>
               Fotografias de fotógrafos do{' '}
               <a href="https://unsplash.com" className={linkClass} target="_blank" rel="noreferrer">
-                Unsplash
+                Unsplash<span className="sr-only"> (abre em nova aba)</span>
               </a>
               . Depoimentos, números e contatos são fictícios.
             </p>
           </div>
           <div className="flex items-center gap-6">
-            <a href={footer.portfolio.href} className={linkClass} target="_blank" rel="noreferrer">
+            <a
+              href={footer.portfolio.href}
+              className={tapLinkClass}
+              target="_blank"
+              rel="noreferrer"
+            >
               {footer.portfolio.label}
+              <span className="sr-only"> (abre em nova aba)</span>
             </a>
-            <a href="#inicio" className={`${linkClass} inline-flex items-center gap-2`}>
+            <a href="#inicio" className={`${tapLinkClass} gap-2`}>
               Voltar ao topo
               <ArrowUp aria-hidden="true" className="size-4" />
             </a>

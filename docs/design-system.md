@@ -197,3 +197,17 @@ Sem biblioteca: CSS + `IntersectionObserver`. Só `opacity` e `transform` são a
 - **Contadores:** `CountUp` conta até o valor ao entrar na tela (1,6 s, ease-out-expo). Reserva a largura do valor final (sem salto) e leitores de tela leem só o valor final.
 - **Hover/foco:** botões afundam (`active:scale-[0.98]`) e a seta avança; cartões de plano sobem 4px; fotos de modalidade ampliam 5%; perguntas do FAQ mudam de cor e o "+" gira.
 - **Movimento reduzido:** o CSS zera animações e transições, `data-reveal` vira visível na hora, `useReveal` remove os atributos e o `CountUp` mostra o valor final.
+
+## 12. Responsividade e acessibilidade (Etapa 7)
+
+**Verificado** (Playwright + axe-core + Lighthouse, build de produção):
+
+- Sem rolagem horizontal em 320, 375, 414, 768, 1024, 1280, 1440 e 1920 px; hero também em paisagem de celular (667×375).
+- axe (WCAG 2.0/2.1/2.2 A e AA + boas práticas): 0 violações. Lighthouse: Acessibilidade 100, Boas práticas 100 (SEO e Performance ficam para a Etapa 8).
+- Landmarks: `header`, `nav` "Principal", `main#conteudo`, `footer`, `nav` "Rodapé"; cada seção tem `aria-labelledby`. Um único `h1`; `h2` por seção e `h3` dentro delas, sem pular nível.
+- Teclado: skip link, ordem natural de foco, contorno visível em todos os controles (grafite sobre claro, lima sobre escuro, branco na navbar transparente), menu mobile com Esc e foco preso, FAQ e formulário operáveis só com teclado.
+- Formulário: todo campo tem `label`; erros com `aria-invalid` + `aria-describedby`, aviso `role="alert"` e foco no primeiro campo inválido; sucesso com `role="status"` e foco.
+- Alvos de toque: links e botões isolados têm pelo menos 44px de altura no mobile (logo, rodapé, e-mail, botões); só os links do menu desktop (27px) ficam abaixo disso, acima do mínimo de 24px da WCAG 2.2.
+- Links que abrem em nova aba avisam "(abre em nova aba)" para leitores de tela.
+- Contraste do texto do hero sobre a foto medido por amostragem de pixels: ≥ 5:1 em 320–768 px; no desktop o texto fica sobre o gradiente grafite e o card do ritual tem fundo `ink/80`.
+- Movimento reduzido: animações, transições **e atrasos** zerados (sem isso, o atraso escondia elementos por até meio segundo).

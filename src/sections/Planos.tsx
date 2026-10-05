@@ -29,7 +29,7 @@ export function Planos() {
                     : 'border-line hover:shadow-lift border bg-white'
                 }`}
               >
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
                   <h3 className="text-h3">{plan.name}</h3>
                   {plan.badge && <Badge tone="lime">{plan.badge}</Badge>}
                 </div>

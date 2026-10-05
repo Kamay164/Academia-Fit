@@ -23,7 +23,7 @@ export function Comunidade() {
           description={community.description}
           className="lg:col-span-7"
         />
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:col-span-5 lg:self-end">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:col-span-5 lg:gap-x-8 lg:self-end">
           {community.stats.map((stat, i) => (
             <div key={stat.label} className="border-ink border-t-2 pt-4" {...reveal(stagger(i))}>
               <dd className="font-display text-h1 order-first leading-none font-extrabold tracking-tight">

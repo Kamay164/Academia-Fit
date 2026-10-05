@@ -20,16 +20,20 @@ export function Estrutura() {
         </p>
       </div>
 
-      <div className="mt-14 grid gap-4 md:grid-cols-3 lg:mt-20 lg:gap-6">
+      <div className="mt-14 grid gap-4 md:grid-cols-2 lg:mt-20 lg:gap-6">
         {facilityPhotos.map((photo, i) => (
           <div
             key={photo.src}
-            className={`aspect-[16/10] overflow-hidden rounded-xl ${i === 0 ? 'md:col-span-3 md:aspect-[21/9]' : ''}`}
+            className={`aspect-[16/10] overflow-hidden rounded-xl ${i === 0 ? 'md:col-span-2 md:aspect-[21/9]' : ''}`}
             {...reveal(i === 0 ? 0 : stagger(i - 1))}
           >
             <PhotoImage
               photo={photo}
-              sizes={i === 0 ? '(min-width: 1216px) 1152px, 92vw' : '(min-width: 768px) 30vw, 92vw'}
+              sizes={
+                i === 0
+                  ? '(min-width: 1216px) 1152px, 92vw'
+                  : '(min-width: 1216px) 576px, (min-width: 768px) 46vw, 92vw'
+              }
             />
           </div>
         ))}

@@ -81,7 +81,7 @@ export function Navbar() {
       )}
     >
       <Container className="h-nav flex items-center justify-between gap-6">
-        <a href="#inicio" className="shrink-0" onClick={closeMenu}>
+        <a href="#inicio" className="flex min-h-11 shrink-0 items-center" onClick={closeMenu}>
           <Logo tone="dark" className={cn('h-9 w-auto', !onDark && 'hidden')} />
           <Logo tone="light" className={cn('h-9 w-auto', onDark && 'hidden')} />
         </a>

@@ -145,7 +145,10 @@ export function Contato() {
             </li>
             <li className="flex gap-4">
               <Mail aria-hidden="true" className="text-lime-deep mt-0.5 size-6 shrink-0" />
-              <a href={email.href} className="underline underline-offset-4">
+              <a
+                href={email.href}
+                className="inline-flex min-h-11 items-center underline underline-offset-4"
+              >
                 {email.label}
               </a>
             </li>
