@@ -8,6 +8,8 @@ import type { ReactNode } from 'react'
 import logoDark from '../assets/brand/logo-dark.svg'
 import logo from '../assets/brand/logo.svg'
 import symbol from '../assets/brand/symbol.svg'
+import { communityPhotos, facilityPhotos, heroPhoto, modalityPhotos } from '../data/images'
+import type { Photo } from '../data/images'
 
 const colors = [
   {
@@ -142,6 +144,31 @@ function Block({ title, children }: { title: string; children: ReactNode }) {
       <h2 className="text-eyebrow text-moss mb-8 font-semibold uppercase">{title}</h2>
       {children}
     </section>
+  )
+}
+
+function Figure({ photo, sizes, label }: { photo: Photo; sizes: string; label: string }) {
+  return (
+    <figure>
+      <img
+        src={photo.src}
+        srcSet={photo.srcSet}
+        sizes={sizes}
+        width={photo.width}
+        height={photo.height}
+        alt={photo.alt}
+        loading="lazy"
+        decoding="async"
+        className="bg-mist h-auto w-full rounded-xl object-cover"
+      />
+      <figcaption className="text-moss mt-2 text-xs">
+        <strong className="text-ink">{label}</strong> · foto de{' '}
+        <a href={photo.credit.url} className="underline" target="_blank" rel="noreferrer">
+          {photo.credit.author}
+        </a>{' '}
+        no Unsplash
+      </figcaption>
+    </figure>
   )
 }
 
@@ -324,6 +351,49 @@ export default function StyleGuide() {
               <p className="text-moss mt-2">Exemplo de card sobre fundo mist.</p>
             </article>
           ))}
+        </div>
+      </Block>
+      <Block title="Fotografia (Etapa 3)">
+        <p className="text-moss mb-8 max-w-prose text-sm">
+          Fotos otimizadas em WebP, com várias larguras (<code>srcSet</code>) e dimensões fixas para
+          não saltar o layout. Dados em <code>src/data/images.ts</code>.
+        </p>
+        <div className="space-y-10">
+          <Figure photo={heroPhoto} sizes="(min-width: 1216px) 1216px, 100vw" label="Hero · 3:2" />
+          <div>
+            <h3 className="text-h3 mb-4">Comunidade</h3>
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+              {communityPhotos.map((p, i) => (
+                <Figure
+                  key={p.credit.url}
+                  photo={p}
+                  sizes="(min-width: 768px) 33vw, 50vw"
+                  label={`Comunidade ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-h3 mb-4">Modalidades · 4:5</h3>
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+              {Object.entries(modalityPhotos).map(([key, p]) => (
+                <Figure key={key} photo={p} sizes="(min-width: 1024px) 25vw, 50vw" label={key} />
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-h3 mb-4">Estrutura · 16:10</h3>
+            <div className="grid gap-4 md:grid-cols-3">
+              {facilityPhotos.map((p, i) => (
+                <Figure
+                  key={p.credit.url}
+                  photo={p}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  label={`Estrutura ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </Block>
     </div>

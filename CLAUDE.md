@@ -78,7 +78,7 @@ Academia +FIT/
 ├── src/
 │   ├── assets/
 │   │   ├── brand/           # logo.svg, logo-dark.svg, symbol.svg (Etapa 1)
-│   │   └── images/          # imagens otimizadas (.webp/.avif)
+│   │   └── images/          # fotos otimizadas em WebP, várias larguras (ex.: hero-1280.webp) — Etapa 3
 │   ├── styleguide/          # TEMPORÁRIO (Etapa 1) — remover na Etapa 4
 │   ├── components/
 │   │   ├── ui/              # Button, Container, SectionTitle, Badge...
@@ -132,7 +132,12 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 - **Modelo:** Opus · esforço `medium`.
 
 ### Etapa 3 — Curadoria e otimização de imagens
-- **Entregáveis:** lista de buscas por seção, imagens de Unsplash/Pexels baixadas (pelo Vinicius ou via fetch permitido), convertidas para `.webp`/`.avif` em tamanhos responsivos, `docs/creditos-imagens.md` (autor, link, licença).
+- **Como funciona (ajustado):** o ambiente do Claude **não consegue baixar** do Unsplash (proxy bloqueia) e não deve tentar contornar. Parte 1: Claude seleciona e verifica as fotos (`docs/imagens-selecao.md`). Parte 2: o Vinicius baixa para `imagens-originais/` (fora do Git), o Claude olha cada foto, otimiza e gera `src/assets/images/` + `src/data/images.ts`.
+- **Só fotos "Free to use under the Unsplash License".** Descartar qualquer uma "Unsplash+" ou "Getty Images".
+- **Entregáveis:** imagens convertidas para `.webp` em tamanhos responsivos, `src/data/images.ts` (com `alt`, autor, link) e `docs/creditos-imagens.md` (autor, link, licença).
+- **Como usar as fotos nos componentes:** importar de `src/data/images.ts` (`heroPhoto`, `communityPhotos`, `modalityPhotos`, `facilityPhotos`) e renderizar `<img src srcSet sizes width height alt loading="lazy">`. Somente a foto do **hero** (LCP) não usa `loading="lazy"` e leva `fetchpriority="high"`. Não importar arquivos de `imagens-originais/`.
+- **Fotos faltando** (o Vinicius baixa depois): `comunidade-6` e ringue. Os componentes devem funcionar com 5 fotos na galeria e 3 na estrutura, sem buracos no layout.
+- **Edição de fotos:** só recorte, redimensionamento e desfoque pontual de placas/marcas ao fundo — sem montagem nem alteração de pessoas. Preferir rejeitar fotos com logo legível de marca real a editá-las.
 - **Verificação:** toda imagem tem crédito e licença registrados; nenhuma imagem > ~250 KB na maior resolução usada; fotos coerentes com "grupo/comunidade".
 - **Modelo:** Sonnet · `medium` para curadoria; Haiku · `low` para conversão em lote e geração da tabela de créditos.
 
@@ -222,8 +227,9 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 |---|---|
 | 0 Setup | ✅ Concluída |
 | 1 Identidade visual | ✅ Concluída (Direção B · Juntos) |
-| 2 Conteúdo e copy | ⏳ Entregue, aguardando aprovação |
-| 3 – 10 | Não iniciadas |
+| 2 Conteúdo e copy | ✅ Concluída |
+| 3 Imagens | ⏳ Entregue (13 fotos otimizadas), aguardando aprovação · pendentes: `comunidade-6` e foto de ringue, que o Vinicius baixa depois |
+| 4 – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 
