@@ -42,11 +42,16 @@ const descriptionColors: Record<TitleTone, string> = {
  *  - fundo escuro → texto lima;
  *  - fundo claro → "marca-texto" lima com texto grafite (lima nunca é texto sobre claro);
  *  - fundo lima → bloco grafite com texto lima.
+ * O marca-texto é um gradiente com 84% da altura da linha, para as faixas de linhas
+ * diferentes não se encostarem quando o título quebra.
  */
+const marker =
+  'box-decoration-clone bg-linear-to-b bg-center bg-no-repeat px-[0.12em] [background-size:100%_84%]'
+
 const highlightStyles: Record<TitleTone, string> = {
   dark: 'text-lime',
-  light: 'bg-lime text-ink box-decoration-clone rounded-sm px-[0.15em]',
-  lime: 'bg-ink text-lime box-decoration-clone rounded-sm px-[0.15em]',
+  light: cn(marker, 'from-lime to-lime text-ink'),
+  lime: cn(marker, 'from-ink to-ink text-lime'),
 }
 
 /** Eyebrow + título (com palavra-chave destacada) + descrição opcional. */

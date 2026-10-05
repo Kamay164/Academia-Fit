@@ -45,7 +45,7 @@ const variants: Record<Tone, Record<Variant, string>> = {
 
 const sizes: Record<Size, string> = {
   md: 'px-6 py-3 text-base',
-  lg: 'px-6 py-4 text-base sm:px-8 sm:text-lg',
+  lg: 'px-5 py-4 text-[0.9375rem] min-[360px]:px-6 min-[360px]:text-base sm:px-8 sm:text-lg',
 }
 
 /**

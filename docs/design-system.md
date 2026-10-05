@@ -120,7 +120,18 @@ Todos em `src/components/ui/` (importe pelo barrel `index.ts`). Só usam tokens 
 | `Logo`         | `tone` light (fundo claro) ou dark (fundo escuro)                                                            |
 | `SocialIcon`   | Glifos de Instagram, YouTube e TikTok (Lucide não tem logos de marcas)                                       |
 
-Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`.
+Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`. Seções da página em `src/sections/` (barrel `index.ts`).
+
+### Hero (Etapa 5A)
+
+- `#inicio`, fundo `ink`, altura `min-h-svh` (no desktop limitada a 58rem). Único `h1` da página (`size="display"`).
+- Mobile: foto ao fundo com gradiente grafite de baixo para cima e texto alinhado embaixo — o CTA principal fica visível sem rolar em 375×667.
+- Desktop: foto ocupando 64% à direita, dissolvida no grafite por gradiente da esquerda; card de ritual (vidro escuro) no canto inferior direito.
+- Foto com `fetchPriority="high"` (é o LCP); `sizes` = `(min-width: 1024px) 64vw, 100vw`.
+
+### Manifesto (Etapa 5A)
+
+- `#sobre`, fundo branco. Título `size="h1"` em 7 colunas, texto em 5 colunas alinhado à base; pilares em 3 colunas com `border-t border-line`, ícone em círculo lima e número decorativo.
 
 ### Botões
 
@@ -129,15 +140,16 @@ Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`.
 | Primário   | `bg-ink text-white` → hover `bg-ink-soft`      | `bg-lime text-ink` → hover `bg-lime-strong`                |
 | Secundário | `border border-ink text-ink` → hover `bg-mist` | `border border-white/40 text-white` → hover `border-white` |
 
-Pílula, mínimo 44px de altura. O tamanho `lg` é mais compacto no mobile para não estourar o gutter em 375px.
+Pílula, mínimo 44px de altura. O tamanho `lg` é mais compacto abaixo de 360px e de 640px para caber com a seta em 320px e 375px.
 
 > **Cuidado:** não passe `hidden`/`lg:hidden` em `className` do `Button` (conflita com `inline-flex` sem tailwind-merge). Envolva o botão em uma `div` com a classe de visibilidade.
 
 ### Destaque no título (`highlight`)
 
 - Fundo escuro: palavra em `text-lime`.
-- Fundo claro: marca-texto `bg-lime text-ink` (lima nunca como texto sobre claro).
-- Fundo lima: palavra em `bg-ink text-lime`.
+- Fundo claro: marca-texto lima com texto `ink` (lima nunca como texto sobre claro).
+- Fundo lima: marca-texto `ink` com texto lima.
+- O marca-texto é um gradiente com 84% da altura da linha (`box-decoration-clone`), para as faixas não se encostarem quando o título quebra em várias linhas.
 
 ### Navbar e âncoras
 

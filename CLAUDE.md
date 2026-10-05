@@ -83,7 +83,7 @@ Academia +FIT/
 │   ├── components/
 │   │   ├── ui/              # Button, Container, SectionTitle, Badge...
 │   │   └── layout/          # Navbar, Footer
-│   ├── sections/            # Hero, Manifesto, Comunidade, Modalidades, Estrutura, Depoimentos, Planos, CTA, Contato
+│   ├── sections/            # Hero, Manifesto (5A ✅ entregues), depois Comunidade, Modalidades, Estrutura, Depoimentos, Planos, CTA, Contato
 │   ├── data/                # conteúdo em arquivos JS/TS (textos, planos, depoimentos)
 │   ├── hooks/               # useScrolled, useActiveSection
 │   ├── lib/                 # cn.ts
@@ -231,7 +231,8 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 2 Conteúdo e copy | ✅ Concluída |
 | 3 Imagens | ⏳ Entregue (13 fotos otimizadas), aguardando aprovação · pendentes: `comunidade-6` e foto de ringue, que o Vinicius baixa depois |
 | 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks, `Preview.tsx` temporário), aguardando aprovação · `src/styleguide/` deve ser removido à mão (`git rm -r src/styleguide`) |
-| 5A – 10 | Não iniciadas |
+| 5A Hero e Manifesto | ⏳ Entregue (`src/sections/Hero.tsx`, `Manifesto.tsx`), aguardando aprovação visual |
+| 5B – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 

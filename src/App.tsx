@@ -1,5 +1,6 @@
 import { Footer, Navbar, SkipLink } from './components/layout'
 import Preview from './Preview'
+import { Hero, Manifesto } from './sections'
 
 function App() {
   return (
@@ -7,7 +8,9 @@ function App() {
       <SkipLink />
       <Navbar />
       <main id="conteudo" tabIndex={-1} className="outline-none">
-        {/* Etapa 5 substitui a prévia pelas seções reais */}
+        <Hero />
+        <Manifesto />
+        {/* Prévia temporária: as demais seções entram na Etapa 5B */}
         <Preview />
       </main>
       <Footer />
