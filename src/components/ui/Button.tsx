@@ -30,7 +30,7 @@ type NativeButtonProps = CommonProps & { href?: undefined } & Omit<
 export type ButtonProps = LinkProps | NativeButtonProps
 
 const base =
-  'group inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-colors duration-200 disabled:pointer-events-none disabled:opacity-50'
+  'group inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition duration-200 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
 
 const variants: Record<Tone, Record<Variant, string>> = {
   light: {

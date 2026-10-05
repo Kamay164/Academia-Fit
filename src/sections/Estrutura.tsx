@@ -1,5 +1,6 @@
 import { PhotoImage, Section, SectionTitle } from '../components/ui'
 import { facilities, facilityPhotos } from '../data'
+import { reveal, stagger } from '../lib/reveal'
 
 /** Estrutura (#estrutura): fundo escuro, três fotos do espaço e os seis ambientes da academia. */
 export function Estrutura() {
@@ -14,7 +15,7 @@ export function Estrutura() {
           title={facilities.title}
           className="lg:col-span-7"
         />
-        <p className="text-lead text-fog max-w-prose lg:col-span-5 lg:self-end">
+        <p className="text-lead text-fog max-w-prose lg:col-span-5 lg:self-end" {...reveal(120)}>
           {facilities.description}
         </p>
       </div>
@@ -24,6 +25,7 @@ export function Estrutura() {
           <div
             key={photo.src}
             className={`aspect-[16/10] overflow-hidden rounded-xl ${i === 0 ? 'md:col-span-3 md:aspect-[21/9]' : ''}`}
+            {...reveal(i === 0 ? 0 : stagger(i - 1))}
           >
             <PhotoImage
               photo={photo}
@@ -34,8 +36,12 @@ export function Estrutura() {
       </div>
 
       <ul className="mt-16 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3">
-        {facilities.items.map(({ icon: Icon, title, description }) => (
-          <li key={title} className="flex gap-4 border-t border-white/15 pt-6">
+        {facilities.items.map(({ icon: Icon, title, description }, i) => (
+          <li
+            key={title}
+            className="flex gap-4 border-t border-white/15 pt-6"
+            {...reveal(stagger(i % 3))}
+          >
             <Icon aria-hidden="true" className="text-lime size-7 shrink-0" strokeWidth={1.75} />
             <div>
               <h3 className="font-display text-xl font-bold">{title}</h3>

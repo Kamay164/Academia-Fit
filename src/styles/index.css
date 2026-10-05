@@ -64,6 +64,20 @@
 
   /* ---------- Movimento ---------- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-rise: rise 0.9s var(--ease-out-expo) both; /* entrada do hero (use com animationDelay) */
+  --animate-settle: settle 1.8s var(--ease-out-expo) both; /* foto do hero assentando */
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+  }
+  @keyframes settle {
+    from {
+      transform: scale(1.06);
+    }
+  }
 }
 
 @layer base {
@@ -113,6 +127,33 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/*
+ * Revelação no scroll (Etapa 6). Marque o elemento com data-reveal (ver src/lib/reveal.ts);
+ * src/hooks/useReveal.ts troca o valor para "in" quando ele entra na tela e remove o atributo ao
+ * fim da transição (assim hover e foco do elemento não herdam o atraso). Só opacity/transform:
+ * não muda o layout.
+ */
+@layer components {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.8s var(--ease-out-expo) var(--reveal-delay, 0ms),
+      transform 0.8s var(--ease-out-expo) var(--reveal-delay, 0ms);
+  }
+  [data-reveal='in'] {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
     }
   }
 }

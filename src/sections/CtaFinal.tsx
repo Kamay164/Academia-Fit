@@ -1,5 +1,6 @@
 import { Button, Section, SectionTitle } from '../components/ui'
 import { finalCta } from '../data'
+import { reveal } from '../lib/reveal'
 
 /** Chamada final (#cta): bloco lima, uma mensagem e um botão. */
 export function CtaFinal() {
@@ -18,9 +19,11 @@ export function CtaFinal() {
         title={finalCta.title}
         description={finalCta.description}
       />
-      <Button href={finalCta.cta.href} size="lg" arrow className="mt-10">
-        {finalCta.cta.label}
-      </Button>
+      <div className="mt-10" {...reveal(150)}>
+        <Button href={finalCta.cta.href} size="lg" arrow>
+          {finalCta.cta.label}
+        </Button>
+      </div>
     </Section>
   )
 }

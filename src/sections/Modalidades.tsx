@@ -1,5 +1,6 @@
 import { Badge, PhotoImage, Section, SectionTitle } from '../components/ui'
 import { modalities, modalityPhotos } from '../data'
+import { reveal, stagger } from '../lib/reveal'
 
 /** Modalidades (#modalidades): quatro cartões com foto, etiqueta e destaques de cada forma de treinar. */
 export function Modalidades() {
@@ -14,12 +15,13 @@ export function Modalidades() {
       />
 
       <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4">
-        {modalities.items.map(({ id, icon: Icon, name, tag, description, highlights }) => {
+        {modalities.items.map(({ id, icon: Icon, name, tag, description, highlights }, i) => {
           const photo = modalityPhotos[id as keyof typeof modalityPhotos]
           return (
             <li
               key={id}
               className="border-line group flex flex-col overflow-hidden rounded-xl border bg-white"
+              {...reveal(stagger(i))}
             >
               <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[4/3]">
                 <PhotoImage

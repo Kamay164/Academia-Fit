@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react'
 import { Section, SectionTitle } from '../components/ui'
 import { faq } from '../data'
+import { reveal, stagger } from '../lib/reveal'
 
 /** Perguntas frequentes (#faq): acordeão nativo (`<details>`), acessível por teclado sem JavaScript. */
 export function Faq() {
@@ -14,9 +15,13 @@ export function Faq() {
           className="lg:col-span-5"
         />
         <div className="lg:col-span-7">
-          {faq.items.map(({ question, answer }) => (
-            <details key={question} className="group border-line border-b first:border-t">
-              <summary className="font-display flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-bold marker:hidden [&::-webkit-details-marker]:hidden">
+          {faq.items.map(({ question, answer }, i) => (
+            <details
+              key={question}
+              className="group border-line border-b first:border-t"
+              {...reveal(stagger(i, 70))}
+            >
+              <summary className="font-display hover:text-lime-deep flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-bold transition-colors marker:hidden [&::-webkit-details-marker]:hidden">
                 {question}
                 <span className="bg-mist group-open:bg-lime grid size-9 shrink-0 place-items-center rounded-full transition-colors">
                   <Plus

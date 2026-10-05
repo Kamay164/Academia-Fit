@@ -1,4 +1,5 @@
 import { cn } from '../../lib/cn'
+import { reveal } from '../../lib/reveal'
 import type { Heading } from '../../data/types'
 
 export type TitleTone = 'light' | 'dark' | 'lime'
@@ -16,6 +17,8 @@ interface SectionTitleProps {
   size?: 'display' | 'h1' | 'h2'
   /** `id` do título (usado por `aria-labelledby` na Section). */
   id?: string
+  /** Revela o bloco ao entrar na tela (desligue no hero, que tem animação própria). */
+  reveal?: boolean
   className?: string
 }
 
@@ -64,11 +67,15 @@ export function SectionTitle({
   as: Tag = 'h2',
   size = 'h2',
   id,
+  reveal: revealOnScroll = true,
   className,
 }: SectionTitleProps) {
   const centered = align === 'center'
   return (
-    <div className={cn('flex flex-col gap-5', centered && 'items-center text-center', className)}>
+    <div
+      className={cn('flex flex-col gap-5', centered && 'items-center text-center', className)}
+      {...(revealOnScroll ? reveal() : {})}
+    >
       {eyebrow && (
         <p className={cn('text-eyebrow font-semibold uppercase', eyebrowColors[tone])}>{eyebrow}</p>
       )}

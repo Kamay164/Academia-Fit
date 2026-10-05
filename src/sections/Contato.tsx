@@ -10,6 +10,7 @@ import {
   TextField,
 } from '../components/ui'
 import { contact, contactForm, contactSection } from '../data'
+import { reveal } from '../lib/reveal'
 
 const { fields, errors: messages } = contactForm
 type FieldName = keyof typeof messages
@@ -118,7 +119,7 @@ export function Contato() {
             title={contactSection.title}
             description={contactSection.description}
           />
-          <ul className="mt-10 flex flex-col gap-6">
+          <ul className="mt-10 flex flex-col gap-6" {...reveal(100)}>
             <li className="flex gap-4">
               <MapPin aria-hidden="true" className="text-lime-deep mt-0.5 size-6 shrink-0" />
               <address className="not-italic">
@@ -149,12 +150,12 @@ export function Contato() {
               </a>
             </li>
           </ul>
-          <div className="mt-10 hidden lg:block">
+          <div className="mt-10 hidden lg:block" {...reveal(200)}>
             <MapIllustration />
           </div>
         </div>
 
-        <div className="bg-mist min-w-0 rounded-xl p-6 sm:p-10 lg:col-span-7">
+        <div className="bg-mist min-w-0 rounded-xl p-6 sm:p-10 lg:col-span-7" {...reveal(120)}>
           {status === 'success' ? (
             <div
               ref={successRef}

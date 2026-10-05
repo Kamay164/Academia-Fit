@@ -1,5 +1,6 @@
-import { PhotoImage, Section, SectionTitle } from '../components/ui'
+import { CountUp, PhotoImage, Section, SectionTitle } from '../components/ui'
 import { community, communityPhotos } from '../data'
+import { reveal, stagger } from '../lib/reveal'
 
 const sizes = '(min-width: 1024px) 25vw, 50vw'
 
@@ -23,12 +24,10 @@ export function Comunidade() {
           className="lg:col-span-7"
         />
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:col-span-5 lg:self-end">
-          {community.stats.map((stat) => (
-            <div key={stat.label} className="border-ink border-t-2 pt-4">
+          {community.stats.map((stat, i) => (
+            <div key={stat.label} className="border-ink border-t-2 pt-4" {...reveal(stagger(i))}>
               <dd className="font-display text-h1 order-first leading-none font-extrabold tracking-tight">
-                {stat.prefix}
-                {stat.value.toLocaleString('pt-BR')}
-                {stat.suffix}
+                <CountUp value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </dd>
               <dt className="text-moss mt-2 text-sm">{stat.label}</dt>
             </div>
@@ -39,17 +38,23 @@ export function Comunidade() {
       <figure className="mt-16 lg:mt-24">
         <div className="grid auto-rows-[11rem] grid-cols-2 gap-3 sm:auto-rows-[14rem] md:auto-rows-[15rem] md:grid-cols-4 md:gap-4 lg:auto-rows-[17rem]">
           {communityPhotos.map((photo, i) => (
-            <div key={photo.src} className={`overflow-hidden rounded-xl ${tiles[i] ?? ''}`}>
+            <div
+              key={photo.src}
+              className={`overflow-hidden rounded-xl ${tiles[i] ?? ''}`}
+              {...reveal(stagger(i, 70))}
+            >
               <PhotoImage photo={photo} sizes={sizes} />
             </div>
           ))}
         </div>
-        <figcaption className="text-moss mt-4 text-sm">{community.galleryCaption}</figcaption>
+        <figcaption className="text-moss mt-4 text-sm" {...reveal()}>
+          {community.galleryCaption}
+        </figcaption>
       </figure>
 
       <ul className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8 lg:mt-20 lg:gap-12">
-        {community.rituals.map(({ icon: Icon, title, description }) => (
-          <li key={title} className="flex gap-5">
+        {community.rituals.map(({ icon: Icon, title, description }, i) => (
+          <li key={title} className="flex gap-5" {...reveal(stagger(i))}>
             <span className="bg-ink text-lime grid size-12 shrink-0 place-items-center rounded-full">
               <Icon aria-hidden="true" className="size-6" />
             </span>

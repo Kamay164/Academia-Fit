@@ -1,3 +1,4 @@
+import { useReveal } from './hooks/useReveal'
 import { Footer, Navbar, SkipLink } from './components/layout'
 import {
   Comunidade,
@@ -13,6 +14,8 @@ import {
 } from './sections'
 
 function App() {
+  useReveal()
+
   return (
     <>
       <SkipLink />

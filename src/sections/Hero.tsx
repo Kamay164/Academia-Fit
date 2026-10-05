@@ -39,7 +39,7 @@ export function Hero() {
           alt={heroPhoto.alt}
           fetchPriority="high"
           decoding="async"
-          className="size-full object-cover object-[50%_30%] lg:object-[62%_30%]"
+          className="animate-settle size-full object-cover object-[50%_30%] lg:object-[62%_30%]"
         />
         {/* Gradientes: garantem contraste do texto (mobile: de baixo; desktop: da esquerda) */}
         <div
@@ -66,8 +66,13 @@ export function Hero() {
             eyebrow={hero.eyebrow}
             title={hero.title}
             description={hero.description}
+            reveal={false}
+            className="animate-rise"
           />
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:mt-10">
+          <div
+            className="animate-rise mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:mt-10"
+            style={{ animationDelay: '180ms' }}
+          >
             <Button href={hero.primaryCta.href} tone="dark" size="lg" arrow>
               {hero.primaryCta.label}
             </Button>
@@ -76,7 +81,10 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-10 flex items-center gap-4 lg:mt-14">
+          <div
+            className="animate-rise mt-10 flex items-center gap-4 lg:mt-14"
+            style={{ animationDelay: '320ms' }}
+          >
             <div aria-hidden="true" className="flex -space-x-2.5">
               {avatars.map((initial, i) => (
                 <span
@@ -100,7 +108,10 @@ export function Hero() {
       {/* Card de ritual sobre a foto (só desktop): reforça "comunidade" sem competir com o CTA */}
       <div className="pointer-events-none absolute inset-x-0 bottom-14 hidden lg:block">
         <Container className="flex justify-end">
-          <div className="bg-ink/55 flex max-w-xs items-start gap-4 rounded-lg border border-white/15 p-5 backdrop-blur-md">
+          <div
+            className="animate-rise bg-ink/55 flex max-w-xs items-start gap-4 rounded-lg border border-white/15 p-5 backdrop-blur-md"
+            style={{ animationDelay: '520ms' }}
+          >
             <span className="bg-lime text-ink grid size-10 shrink-0 place-items-center rounded-full">
               <RitualIcon aria-hidden="true" className="size-5" />
             </span>

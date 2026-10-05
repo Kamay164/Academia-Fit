@@ -84,8 +84,8 @@ Academia +FIT/
 │   │   └── layout/          # Navbar, Footer
 │   ├── sections/            # Hero, Manifesto, Comunidade, Modalidades, Estrutura, Depoimentos, Planos, Faq, CtaFinal, Contato
 │   ├── data/                # conteúdo em arquivos JS/TS (textos, planos, depoimentos)
-│   ├── hooks/               # useScrolled, useActiveSection
-│   ├── lib/                 # cn.ts
+│   ├── hooks/               # useScrolled, useActiveSection, useReveal
+│   ├── lib/                 # cn.ts, reveal.ts
 │   ├── styles/index.css
 │   ├── App.tsx
 │   └── main.tsx
@@ -232,7 +232,8 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks, `Preview.tsx` temporário), aguardando aprovação · `src/styleguide/` deve ser removido à mão (`git rm -r src/styleguide`) |
 | 5A Hero e Manifesto | ⏳ Entregue (`src/sections/Hero.tsx`, `Manifesto.tsx`), aguardando aprovação visual |
 | 5B Demais seções | ⏳ Entregue (7 seções + FAQ, `Preview.tsx` removido), aguardando aprovação |
-| 6 – 10 | Não iniciadas |
+| 6 Animações | ⏳ Entregue (revelação no scroll, hero animado, contadores, hovers; sem biblioteca), aguardando aprovação |
+| 7 – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 

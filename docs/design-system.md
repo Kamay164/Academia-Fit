@@ -186,3 +186,14 @@ Ritmo de fundos: ink (hero) → branco (manifesto) → mist (comunidade) → bra
 - **Planos:** plano em destaque em `ink` com etiqueta lima.
 - **FAQ:** acordeão nativo `<details>`.
 - **Contato:** formulário só front-end (`FormField.tsx`: TextField, SelectField, TextAreaField), validação ao enviar, `aria-invalid` + `aria-describedby`, foco no primeiro erro, máscara de WhatsApp, estado de envio simulado e mensagem de sucesso com foco. Nada é enviado.
+
+## 11. Movimento (Etapa 6)
+
+Sem biblioteca: CSS + `IntersectionObserver`. Só `opacity` e `transform` são animados (nada que mude o layout).
+
+- **Entrada do hero:** `animate-rise` (sobe 20px e aparece, 0,9s) em cascata com `animationDelay` (0, 180, 320, 520 ms); a foto "assenta" com `animate-settle` (zoom de 1,06 a 1).
+- **Revelação no scroll:** `{...reveal(delay)}` (de `src/lib/reveal.ts`) em qualquer elemento; `useReveal()` (chamado uma vez no `App`) troca `data-reveal` para `in` ao entrar na tela e **remove o atributo no fim da transição**. `stagger(i)` escalona itens de lista (90 ms por item, máximo 360 ms). `SectionTitle` já revela sozinho (`reveal={false}` desliga).
+- **Regra:** não ponha classes `transition-*` no mesmo elemento que tem `reveal`; elas sobrescrevem a transição da revelação. Para hover, use um elemento interno (como nos cartões de Planos).
+- **Contadores:** `CountUp` conta até o valor ao entrar na tela (1,6 s, ease-out-expo). Reserva a largura do valor final (sem salto) e leitores de tela leem só o valor final.
+- **Hover/foco:** botões afundam (`active:scale-[0.98]`) e a seta avança; cartões de plano sobem 4px; fotos de modalidade ampliam 5%; perguntas do FAQ mudam de cor e o "+" gira.
+- **Movimento reduzido:** o CSS zera animações e transições, `data-reveal` vira visível na hora, `useReveal` remove os atributos e o `CountUp` mostra o valor final.
