@@ -79,11 +79,10 @@ Academia +FIT/
 │   ├── assets/
 │   │   ├── brand/           # logo.svg, logo-dark.svg, symbol.svg (Etapa 1)
 │   │   └── images/          # fotos otimizadas em WebP, várias larguras (ex.: hero-1280.webp) — Etapa 3
-│   ├── Preview.tsx          # TEMPORÁRIO (Etapa 4) — placeholders das seções; remover no fim da Etapa 5B
 │   ├── components/
 │   │   ├── ui/              # Button, Container, SectionTitle, Badge...
 │   │   └── layout/          # Navbar, Footer
-│   ├── sections/            # Hero, Manifesto (5A ✅ entregues), depois Comunidade, Modalidades, Estrutura, Depoimentos, Planos, CTA, Contato
+│   ├── sections/            # Hero, Manifesto, Comunidade, Modalidades, Estrutura, Depoimentos, Planos, Faq, CtaFinal, Contato
 │   ├── data/                # conteúdo em arquivos JS/TS (textos, planos, depoimentos)
 │   ├── hooks/               # useScrolled, useActiveSection
 │   ├── lib/                 # cn.ts
@@ -232,7 +231,8 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 3 Imagens | ⏳ Entregue (13 fotos otimizadas), aguardando aprovação · pendentes: `comunidade-6` e foto de ringue, que o Vinicius baixa depois |
 | 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks, `Preview.tsx` temporário), aguardando aprovação · `src/styleguide/` deve ser removido à mão (`git rm -r src/styleguide`) |
 | 5A Hero e Manifesto | ⏳ Entregue (`src/sections/Hero.tsx`, `Manifesto.tsx`), aguardando aprovação visual |
-| 5B – 10 | Não iniciadas |
+| 5B Demais seções | ⏳ Entregue (7 seções + FAQ, `Preview.tsx` removido), aguardando aprovação |
+| 6 – 10 | Não iniciadas |
 
 ## 12. Guia rápido de modelos e esforço
 

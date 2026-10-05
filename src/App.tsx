@@ -1,6 +1,16 @@
 import { Footer, Navbar, SkipLink } from './components/layout'
-import Preview from './Preview'
-import { Hero, Manifesto } from './sections'
+import {
+  Comunidade,
+  Contato,
+  CtaFinal,
+  Depoimentos,
+  Estrutura,
+  Faq,
+  Hero,
+  Manifesto,
+  Modalidades,
+  Planos,
+} from './sections'
 
 function App() {
   return (
@@ -10,8 +20,14 @@ function App() {
       <main id="conteudo" tabIndex={-1} className="outline-none">
         <Hero />
         <Manifesto />
-        {/* Prévia temporária: as demais seções entram na Etapa 5B */}
-        <Preview />
+        <Comunidade />
+        <Modalidades />
+        <Estrutura />
+        <Depoimentos />
+        <Planos />
+        <Faq />
+        <CtaFinal />
+        <Contato />
       </main>
       <Footer />
     </>

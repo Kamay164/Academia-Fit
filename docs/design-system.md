@@ -173,3 +173,16 @@ Pílula, mínimo 44px de altura. O tamanho `lg` é mais compacto abaixo de 360px
 - **Luz natural e cores quentes**, levemente dessaturadas para conviver com o lima. Evitar fotos com muito verde ou amarelo forte competindo com o destaque.
 - **Diversidade** de corpos, idades e etnias — pertencimento é para todo mundo.
 - Fotos em `rounded-xl`; sobre fotos com texto, usar gradiente de `ink` para garantir contraste.
+
+## 10. Seções da página (Etapa 5B)
+
+Ritmo de fundos: ink (hero) → branco (manifesto) → mist (comunidade) → branco (modalidades) → ink (estrutura) → branco (depoimentos) → mist (planos) → branco (FAQ) → lima (CTA) → branco (contato) → ink (rodapé).
+
+- Todas em `src/sections/`, consumindo `src/data/`. Fotos pelo componente `PhotoImage` (srcSet, dimensões e `loading="lazy"`).
+- **Comunidade:** números (contadores animam na Etapa 6), mosaico de 5 fotos e três rituais.
+- **Modalidades:** 4 cartões com foto, etiqueta lima, ícone e destaques.
+- **Estrutura:** fundo escuro, 3 fotos e 6 ambientes.
+- **Depoimentos:** 4 cartões `figure/blockquote` com aviso de que são fictícios.
+- **Planos:** plano em destaque em `ink` com etiqueta lima.
+- **FAQ:** acordeão nativo `<details>`.
+- **Contato:** formulário só front-end (`FormField.tsx`: TextField, SelectField, TextAreaField), validação ao enviar, `aria-invalid` + `aria-describedby`, foco no primeiro erro, máscara de WhatsApp, estado de envio simulado e mensagem de sucesso com foco. Nada é enviado.
