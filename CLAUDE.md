@@ -236,7 +236,7 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 7 Responsivo e a11y | ⏳ Entregue (auditoria 320–1920 px, axe 0 violações, Lighthouse A11y 100), aguardando aprovação |
 | 8 Performance e SEO | ⏳ Entregue (Lighthouse mobile 92/100/100/100, desktop 100 em tudo; meta/OG/preloads/robots/sitemap), aguardando aprovação |
 | 9 Revisão final | ⏳ Entregue (revisão de código, visual e de copy; correções listadas em `docs/design-system.md` §14), aguardando aprovação |
-| 10 README + deploy | Não iniciada |
+| 10 README + deploy | ⏳ README entregue (com screenshots); falta o Vinicius fazer o push/deploy na Vercel e informar a URL para entrar no README |
 
 ## 12. Guia rápido de modelos e esforço
 
