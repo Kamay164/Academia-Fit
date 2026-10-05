@@ -1,5 +1,6 @@
 import { CountUp, PhotoImage, Section, SectionTitle } from '../components/ui'
 import { community, communityPhotos } from '../data'
+import { cn } from '../lib/cn'
 import { reveal, stagger } from '../lib/reveal'
 
 const sizes = '(min-width: 1024px) 25vw, 50vw'
@@ -25,11 +26,16 @@ export function Comunidade() {
         />
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:col-span-5 lg:gap-x-8 lg:self-end">
           {community.stats.map((stat, i) => (
-            <div key={stat.label} className="border-ink border-t-2 pt-4" {...reveal(stagger(i))}>
+            // No HTML o rótulo (dt) vem antes do número (dd); na tela, o número aparece em cima.
+            <div
+              key={stat.label}
+              className="border-ink flex flex-col border-t-2 pt-4"
+              {...reveal(stagger(i))}
+            >
+              <dt className="text-moss mt-2 text-sm">{stat.label}</dt>
               <dd className="font-display text-h1 order-first leading-none font-extrabold tracking-tight">
                 <CountUp value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </dd>
-              <dt className="text-moss mt-2 text-sm">{stat.label}</dt>
             </div>
           ))}
         </dl>
@@ -40,7 +46,7 @@ export function Comunidade() {
           {communityPhotos.map((photo, i) => (
             <div
               key={photo.src}
-              className={`overflow-hidden rounded-xl ${tiles[i] ?? ''}`}
+              className={cn('overflow-hidden rounded-xl', tiles[i])}
               {...reveal(stagger(i, 70))}
             >
               <PhotoImage photo={photo} sizes={sizes} />
@@ -54,7 +60,7 @@ export function Comunidade() {
 
       <ul className="mt-16 grid gap-10 md:grid-cols-3 md:gap-8 lg:mt-20 lg:gap-12">
         {community.rituals.map(({ icon: Icon, title, description }, i) => (
-          <li key={title} className="flex gap-5" {...reveal(stagger(i))}>
+          <li key={title} className="flex gap-5 md:flex-col lg:flex-row" {...reveal(stagger(i))}>
             <span className="bg-ink text-lime grid size-12 shrink-0 place-items-center rounded-full">
               <Icon aria-hidden="true" className="size-6" />
             </span>

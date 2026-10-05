@@ -1,5 +1,6 @@
-import { Button, Container, SectionTitle } from '../components/ui'
-import { community, hero, heroPhoto, testimonials } from '../data'
+import { Button, Container, PhotoImage, SectionTitle } from '../components/ui'
+import { cn } from '../lib/cn'
+import { community, hero, heroImage, heroPhoto, testimonials } from '../data'
 
 /** Inicial de quem deu depoimento ("Camila R." → "C") para a pilha de avatares da prova social. */
 const avatars = testimonials.items.map(({ name }) => name[0])
@@ -30,16 +31,11 @@ export function Hero() {
       className="bg-ink relative isolate flex min-h-svh flex-col overflow-hidden text-white lg:min-h-[min(100svh,58rem)]"
     >
       <div className="absolute inset-0 -z-10 lg:left-[36%]">
-        <img
-          srcSet={heroPhoto.srcSet}
-          sizes="(min-width: 1024px) 64vw, 100vw"
-          src={heroPhoto.src}
-          width={heroPhoto.width}
-          height={heroPhoto.height}
-          alt={heroPhoto.alt}
-          fetchPriority="high"
-          decoding="async"
-          className="animate-settle size-full object-cover object-[50%_30%] lg:object-[62%_30%]"
+        <PhotoImage
+          photo={heroPhoto}
+          sizes={heroImage.sizes}
+          priority
+          className="animate-settle object-[50%_30%] lg:object-[62%_30%]"
         />
         {/* Gradientes: garantem contraste do texto (mobile: de baixo; desktop: da esquerda) */}
         <div
@@ -89,7 +85,10 @@ export function Hero() {
               {avatars.map((initial, i) => (
                 <span
                   key={i}
-                  className={`ring-ink grid size-10 place-items-center rounded-full text-sm font-bold ring-3 ${avatarColors[i % avatarColors.length]}`}
+                  className={cn(
+                    'ring-ink grid size-10 place-items-center rounded-full text-sm font-bold ring-3',
+                    avatarColors[i % avatarColors.length],
+                  )}
                 >
                   {initial}
                 </span>

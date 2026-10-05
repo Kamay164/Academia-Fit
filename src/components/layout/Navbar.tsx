@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { useScrolled } from '../../hooks/useScrolled'
 import { cn } from '../../lib/cn'
-import { nav, navA11y, navCta } from '../../data/site'
+import { a11y, nav, navCta } from '../../data/site'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { Logo } from '../ui/Logo'
@@ -126,7 +126,7 @@ export function Navbar() {
             type="button"
             aria-expanded={open}
             aria-controls="menu-mobile"
-            aria-label={open ? navA11y.close : navA11y.open}
+            aria-label={open ? a11y.menuClose : a11y.menuOpen}
             onClick={() => setOpen((value) => !value)}
             className={cn(
               'inline-flex size-11 items-center justify-center rounded-full transition-colors duration-200 lg:hidden',
@@ -158,7 +158,7 @@ export function Navbar() {
       >
         <nav
           aria-label="Principal"
-          className="px-gutter max-h-[calc(100dvh-4.5rem)] overflow-y-auto py-6"
+          className="px-gutter max-h-[calc(100dvh-var(--spacing-nav))] overflow-y-auto py-6"
         >
           <ul>
             {nav.map((link) => {

@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import type { HtmlTagDescriptor, Plugin } from 'vite'
 import { defineConfig } from 'vite'
+import { heroImage } from './src/data/heroImage.ts'
 import { site } from './src/data/site.ts'
 
 /**
@@ -69,9 +70,9 @@ function headPlugin(): Plugin {
           const find = (re: RegExp) => names.find((n) => re.test(n))
           const url = (n: string) => `/${n}`
 
-          const hero = ['hero-768', 'hero-1280', 'hero-1920']
-            .map((k) => ({ k, file: find(new RegExp(`${k}-.*\\.webp$`)) }))
-            .filter((h): h is { k: string; file: string } => Boolean(h.file))
+          const hero = heroImage.widths
+            .map((w) => ({ w, file: find(new RegExp(`hero-${w}-.*\\.webp$`)) }))
+            .filter((h): h is { w: number; file: string } => Boolean(h.file))
           if (hero.length) {
             tags.push({
               tag: 'link',
@@ -79,8 +80,8 @@ function headPlugin(): Plugin {
                 rel: 'preload',
                 as: 'image',
                 type: 'image/webp',
-                imagesrcset: hero.map((h) => `${url(h.file)} ${h.k.split('-')[1]}w`).join(', '),
-                imagesizes: '(min-width: 1024px) 64vw, 100vw',
+                imagesrcset: hero.map((h) => `${url(h.file)} ${h.w}w`).join(', '),
+                imagesizes: heroImage.sizes,
                 fetchpriority: 'high',
               },
               injectTo: 'head-prepend',

@@ -21,7 +21,13 @@ export const nav: Link[] = [
 
 export const navCta: Link = { label: 'Aula experimental grátis', href: '#contato' }
 
-export const navA11y = { open: 'Abrir menu', close: 'Fechar menu' }
+/** Textos só para leitores de tela e teclado. */
+export const a11y = {
+  skipLink: 'Pular para o conteúdo',
+  menuOpen: 'Abrir menu',
+  menuClose: 'Fechar menu',
+  newTab: '(abre em nova aba)',
+}
 
 export const contact = {
   address: {
@@ -34,7 +40,7 @@ export const contact = {
     { days: 'Sábado', time: '8h às 18h' },
     { days: 'Domingo e feriados', time: '8h às 13h' },
   ],
-  whatsapp: { label: '(31) 90000-0000', href: '#contato' },
+  whatsapp: { name: 'WhatsApp', label: '(31) 90000-0000', href: '#contato' },
   email: { label: 'ola@maisfit.example', href: 'mailto:ola@maisfit.example' },
 }
 
@@ -48,7 +54,15 @@ export const social: { network: SocialNetwork; label: string; href: string }[] =
 ]
 
 export const footer = {
+  navTitle: 'Navegue',
+  contactTitle: 'Fale com a gente',
   legal: '© 2026 +Fit. Academia fictícia — projeto de portfólio desenvolvido por Vinicius.',
-  // TODO: confirmar link do portfólio (GitHub Kamay164 ou site pessoal)
+  /** "Fotografias de fotógrafos do [Unsplash]. Depoimentos…" — o link fica no meio da frase. */
+  credits: {
+    before: 'Fotografias de fotógrafos do',
+    link: { label: 'Unsplash', href: 'https://unsplash.com' },
+    after: '. Depoimentos, números e contatos são fictícios.',
+  },
   portfolio: { label: 'Ver portfólio', href: 'https://github.com/Kamay164' },
+  backToTop: { label: 'Voltar ao topo', href: '#inicio' },
 }

@@ -2,7 +2,7 @@
 
 **Direção escolhida:** B · "Juntos" — moderna, calorosa e acolhedora.
 **Fonte da verdade dos tokens:** `src/styles/index.css` (bloco `@theme`).
-**Visualização:** página temporária `src/styleguide/StyleGuide.tsx` (exibida em `/` até a Etapa 4).
+**Onde ver aplicado:** a própria landing page (o style guide temporário da Etapa 1 foi removido na Etapa 4).
 
 ---
 
@@ -92,16 +92,16 @@ Fontes auto-hospedadas via Fontsource (`@fontsource-variable/*`), importadas em 
 
 ## 6. Formas, sombras e movimento
 
-| Token           | Valor                           | Uso                               |
-| --------------- | ------------------------------- | --------------------------------- |
-| `rounded-sm`    | 8px                             | Elementos pequenos                |
-| `rounded-md`    | 14px                            | Inputs, tags                      |
-| `rounded-lg`    | 20px                            | Cards                             |
-| `rounded-xl`    | 28px                            | Fotos e blocos grandes            |
-| `rounded-full`  | —                               | Botões (pílula), avatares, badges |
-| `shadow-soft`   | sombra suave                    | Cards em repouso (opcional)       |
-| `shadow-lift`   | sombra elevada                  | Hover de cards                    |
-| `ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Transições de entrada e hover     |
+| Token           | Valor                           | Uso                                                                            |
+| --------------- | ------------------------------- | ------------------------------------------------------------------------------ |
+| `rounded-sm`    | 8px                             | Elementos pequenos                                                             |
+| `rounded-md`    | 14px                            | Inputs, tags                                                                   |
+| `rounded-lg`    | 20px                            | Cards pequenos (card do hero)                                                  |
+| `rounded-xl`    | 28px                            | Fotos e blocos grandes (cartões de modalidade, plano e depoimento, formulário) |
+| `rounded-full`  | —                               | Botões (pílula), avatares, badges                                              |
+| `shadow-soft`   | sombra suave                    | Cards em repouso (opcional)                                                    |
+| `shadow-lift`   | sombra elevada                  | Hover de cards                                                                 |
+| `ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Transições de entrada e hover                                                  |
 
 - Durações: 150–200ms para cor/hover; 300–600ms para entradas.
 - `prefers-reduced-motion` já zera animações no CSS base.
@@ -110,15 +110,18 @@ Fontes auto-hospedadas via Fontsource (`@fontsource-variable/*`), importadas em 
 
 Todos em `src/components/ui/` (importe pelo barrel `index.ts`). Só usam tokens deste documento.
 
-| Componente     | Para quê                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------ |
-| `Container`    | `max-w-content` + `px-gutter`, centralizado                                                                  |
-| `Section`      | `<section>` com `py-section` e `scroll-mt-nav`; `tone` light/mist/dark/lime; `dark` já aplica `data-surface` |
-| `SectionTitle` | Eyebrow + título (`Heading` com destaque) + descrição; `tone` light/dark/lime; `as` h1/h2; `size`            |
-| `Button`       | Link (`href`) ou botão; `variant` primary/secondary; `tone` light/dark; `size` md/lg; `arrow`; `fullWidth`   |
-| `Badge`        | Tons lime, ink, mist, outline, glass                                                                         |
-| `Logo`         | `tone` light (fundo claro) ou dark (fundo escuro)                                                            |
-| `SocialIcon`   | Glifos de Instagram, YouTube e TikTok (Lucide não tem logos de marcas)                                       |
+| Componente                                  | Para quê                                                                                                                                                      |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Container`                                 | `max-w-content` + `px-gutter`, centralizado                                                                                                                   |
+| `Section`                                   | `<section>` com `py-section` e `scroll-mt-nav`; `tone` light/mist/dark/lime; `dark` já aplica `data-surface`                                                  |
+| `SectionTitle`                              | Eyebrow + título (`Heading` com destaque) + descrição; `tone` light/dark/lime; `as` h1/h2; `size`                                                             |
+| `Button`                                    | Link (`href`) ou botão; `variant` primary/secondary; `tone` light/dark; `size` md/lg; `arrow`; `fullWidth`; `wrap` (deixa o texto quebrar em telas estreitas) |
+| `PhotoImage`                                | `<img>` responsivo de `src/data/images.ts` (srcSet, width/height, lazy); `priority` só na foto do hero                                                        |
+| `CountUp`                                   | Número que conta até o valor ao entrar na tela (Etapa 6)                                                                                                      |
+| `TextField`, `SelectField`, `TextAreaField` | Campos do formulário com rótulo, "(opcional)" e erro ligados por `aria-describedby`                                                                           |
+| `Badge`                                     | Tons lime, ink, mist, outline, glass                                                                                                                          |
+| `Logo`                                      | `tone` light (fundo claro) ou dark (fundo escuro)                                                                                                             |
+| `SocialIcon`                                | Glifos de Instagram, YouTube e TikTok (Lucide não tem logos de marcas)                                                                                        |
 
 Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`. Seções da página em `src/sections/` (barrel `index.ts`).
 
@@ -127,7 +130,7 @@ Layout em `src/components/layout/`: `SkipLink`, `Navbar`, `Footer`. Seções da 
 - `#inicio`, fundo `ink`, altura `min-h-svh` (no desktop limitada a 58rem). Único `h1` da página (`size="display"`).
 - Mobile: foto ao fundo com gradiente grafite de baixo para cima e texto alinhado embaixo — o CTA principal fica visível sem rolar em 375×667.
 - Desktop: foto ocupando 64% à direita, dissolvida no grafite por gradiente da esquerda; card de ritual (vidro escuro) no canto inferior direito.
-- Foto com `fetchPriority="high"` (é o LCP); `sizes` = `(min-width: 1024px) 64vw, 100vw`.
+- Foto via `<PhotoImage priority>` (é o LCP). Larguras e `sizes` ficam em `src/data/heroImage.ts`, lido também pelo `vite.config.ts` para gerar o preload igual ao `<img>`.
 
 ### Manifesto (Etapa 5A)
 
@@ -179,9 +182,9 @@ Pílula, mínimo 44px de altura. O tamanho `lg` é mais compacto abaixo de 360px
 Ritmo de fundos: ink (hero) → branco (manifesto) → mist (comunidade) → branco (modalidades) → ink (estrutura) → branco (depoimentos) → mist (planos) → branco (FAQ) → lima (CTA) → branco (contato) → ink (rodapé).
 
 - Todas em `src/sections/`, consumindo `src/data/`. Fotos pelo componente `PhotoImage` (srcSet, dimensões e `loading="lazy"`).
-- **Comunidade:** números (contadores animam na Etapa 6), mosaico de 5 fotos e três rituais.
-- **Modalidades:** 4 cartões com foto, etiqueta lima, ícone e destaques.
-- **Estrutura:** fundo escuro, 3 fotos e 6 ambientes.
+- **Comunidade:** números (contadores animam na Etapa 6), mosaico de 5 fotos e três rituais (no tablet, ícone acima do texto para as três colunas não ficarem estreitas).
+- **Modalidades:** 4 cartões com foto, etiqueta lima, ícone em círculo grafite e destaques. A partir de `sm` cada cartão usa `grid-rows-subgrid`: título, texto e destaques ficam alinhados entre cartões vizinhos.
+- **Estrutura:** fundo escuro, 5 fotos (uma larga + grade 2×2) e 6 ambientes.
 - **Depoimentos:** 4 cartões `figure/blockquote` com aviso de que são fictícios.
 - **Planos:** plano em destaque em `ink` com etiqueta lima.
 - **FAQ:** acordeão nativo `<details>`.
@@ -224,3 +227,13 @@ Sem biblioteca: CSS + `IntersectionObserver`. Só `opacity` e `transform` são a
 - **Ícones e compartilhamento:** `public/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon-maskable-512.png`, `site.webmanifest`, `og-image.jpg` (1200×630, gerada a partir do hero e da marca).
 - **Limitação conhecida:** a página é renderizada no cliente (SPA). Buscadores modernos executam JavaScript; pré-renderização estática ficaria fora do escopo do projeto.
 - Sem dados estruturados (JSON-LD) de propósito: o endereço, o telefone e o horário são fictícios.
+
+## 14. Revisão final (Etapa 9)
+
+Ajustes feitos na revisão contra este documento:
+
+- **Lima com moderação (regra 3):** os ícones dos cartões de Modalidades passaram de círculo lima para círculo grafite com ícone lima; a etiqueta da foto continua lima.
+- **Alinhamento:** cartões de Modalidades em subgrid; ícones do rodapé e do e-mail do Contato centralizados com links de 44px; horários sem quebra no meio ("5h30 às 23h").
+- **Contato:** o bloco do formulário não estica mais até a altura do mapa no desktop; no celular a seta do botão de envio sai (o texto cabe numa linha a partir de 360px) e em 320px o texto quebra em duas linhas em vez de vazar.
+- **Rodapé:** linha final (aviso + links) só vira linha única a partir de `lg`; antes, em 768px, "Ver portfólio" e "Voltar ao topo" quebravam.
+- **Textos:** toda a microcopy que estava fixa nos componentes (rodapé, skip link, aviso de erros do formulário, "/mês") foi para `src/data/`.

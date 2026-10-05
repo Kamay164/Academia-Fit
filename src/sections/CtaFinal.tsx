@@ -6,7 +6,7 @@ import { reveal } from '../lib/reveal'
 export function CtaFinal() {
   return (
     <Section
-      id="cta"
+      id={finalCta.id}
       tone="lime"
       labelledBy="cta-titulo"
       containerClassName="flex flex-col items-center text-center"

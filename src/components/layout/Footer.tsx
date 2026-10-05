@@ -1,5 +1,5 @@
 import { ArrowUp, Clock, Mail, MapPin, Phone } from 'lucide-react'
-import { contact, footer, nav, site, social } from '../../data/site'
+import { a11y, contact, footer, nav, site, social } from '../../data/site'
 import { Container } from '../ui/Container'
 import { Logo } from '../ui/Logo'
 import { SocialIcon } from '../ui/SocialIcon'
@@ -34,8 +34,8 @@ export function Footer() {
           </div>
 
           <nav aria-label="Rodapé">
-            <h2 className="text-eyebrow text-lime font-semibold uppercase">Navegue</h2>
-            <ul className="mt-5 flex flex-col gap-3">
+            <h2 className="text-eyebrow text-lime font-semibold uppercase">{footer.navTitle}</h2>
+            <ul className="mt-3 flex flex-col gap-1">
               {nav.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className={tapLinkClass}>
@@ -47,7 +47,9 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="text-eyebrow text-lime font-semibold uppercase">Fale com a gente</h2>
+            <h2 className="text-eyebrow text-lime font-semibold uppercase">
+              {footer.contactTitle}
+            </h2>
             <ul className="text-fog mt-5 flex flex-col gap-4 text-sm">
               <li className="flex gap-3">
                 <MapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-white" />
@@ -63,19 +65,20 @@ export function Footer() {
                   {contact.hours.map((row) => (
                     <div key={row.days} className="contents">
                       <dt>{row.days}</dt>
-                      <dd className="text-white">{row.time}</dd>
+                      <dd className="whitespace-nowrap text-white">{row.time}</dd>
                     </div>
                   ))}
                 </dl>
               </li>
-              <li className="flex gap-3">
-                <Phone aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-white" />
+              {/* Links com 44px de altura: ícone centralizado com o texto, não com o topo */}
+              <li className="flex items-center gap-3">
+                <Phone aria-hidden="true" className="size-4 shrink-0 text-white" />
                 <a href={contact.whatsapp.href} className={tapLinkClass}>
-                  WhatsApp {contact.whatsapp.label}
+                  {contact.whatsapp.name}: {contact.whatsapp.label}
                 </a>
               </li>
-              <li className="flex gap-3">
-                <Mail aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-white" />
+              <li className="flex items-center gap-3">
+                <Mail aria-hidden="true" className="size-4 shrink-0 text-white" />
                 <a href={contact.email.href} className={tapLinkClass}>
                   {contact.email.label}
                 </a>
@@ -84,18 +87,24 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-fog flex flex-col gap-4 py-8 text-sm md:flex-row md:items-center md:justify-between">
+        <div className="text-fog flex flex-col gap-4 py-8 text-sm lg:flex-row lg:items-center lg:justify-between">
           <div className="flex max-w-prose flex-col gap-1">
             <p>{footer.legal}</p>
             <p>
-              Fotografias de fotógrafos do{' '}
-              <a href="https://unsplash.com" className={linkClass} target="_blank" rel="noreferrer">
-                Unsplash<span className="sr-only"> (abre em nova aba)</span>
+              {footer.credits.before}{' '}
+              <a
+                href={footer.credits.link.href}
+                className={linkClass}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {footer.credits.link.label}
+                <span className="sr-only"> {a11y.newTab}</span>
               </a>
-              . Depoimentos, números e contatos são fictícios.
+              {footer.credits.after}
             </p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex shrink-0 items-center gap-6 whitespace-nowrap">
             <a
               href={footer.portfolio.href}
               className={tapLinkClass}
@@ -103,10 +112,10 @@ export function Footer() {
               rel="noreferrer"
             >
               {footer.portfolio.label}
-              <span className="sr-only"> (abre em nova aba)</span>
+              <span className="sr-only"> {a11y.newTab}</span>
             </a>
-            <a href="#inicio" className={`${tapLinkClass} gap-2`}>
-              Voltar ao topo
+            <a href={footer.backToTop.href} className={`${tapLinkClass} gap-2`}>
+              {footer.backToTop.label}
               <ArrowUp aria-hidden="true" className="size-4" />
             </a>
           </div>

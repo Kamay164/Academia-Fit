@@ -6,9 +6,9 @@ import type {
 } from 'react'
 import { cn } from '../../lib/cn'
 
+/** Visual comum de input, select e textarea. Com erro, a borda fica vermelha e mais grossa. */
 const control =
-  'min-h-12 w-full rounded-md border bg-white px-4 py-3 text-base text-ink placeholder:text-moss transition-colors focus-visible:outline-offset-2 aria-[invalid=true]:border-error aria-[invalid=true]:border-2'
-const controlBorder = 'border-stone'
+  'min-h-12 w-full rounded-md border border-stone bg-white px-4 py-3 text-base text-ink placeholder:text-moss transition-colors focus-visible:outline-offset-2 aria-[invalid=true]:border-2 aria-[invalid=true]:border-error'
 
 interface FieldShellProps {
   id: string
@@ -67,7 +67,7 @@ export function TextField({
         name={id}
         aria-required={required || undefined}
         {...aria(id, error)}
-        className={cn(control, controlBorder, className)}
+        className={cn(control, className)}
         {...props}
       />
     </Shell>
@@ -96,7 +96,7 @@ export function SelectField({
         defaultValue=""
         aria-required={required || undefined}
         {...aria(id, error)}
-        className={cn(control, controlBorder, className)}
+        className={cn(control, className)}
         {...props}
       >
         <option value="" disabled>
@@ -129,7 +129,7 @@ export function TextAreaField({
         rows={4}
         aria-required={required || undefined}
         {...aria(id, error)}
-        className={cn(control, controlBorder, 'resize-y', className)}
+        className={cn(control, 'resize-y', className)}
         {...props}
       />
     </Shell>

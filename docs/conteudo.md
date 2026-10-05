@@ -18,20 +18,20 @@
 
 ## Mapa da página
 
-| #   | Seção                | Âncora         | Fundo                              | Objetivo                                                                       |
-| --- | -------------------- | -------------- | ---------------------------------- | ------------------------------------------------------------------------------ |
-| 1   | Navbar               | —              | branco (transparente sobre o hero) | Orientar e manter o CTA sempre à mão                                           |
-| 2   | Hero                 | `#inicio`      | ink                                | Em 5 segundos: academia + comunidade + ação                                    |
-| 3   | Manifesto            | `#sobre`       | branco                             | Explicar o "porquê": resultado vem, pertencimento fica                         |
-| 4   | Comunidade           | `#comunidade`  | mist                               | Provar a comunidade: números, rituais, fotos de grupo                          |
-| 5   | Modalidades          | `#modalidades` | branco                             | Mostrar as 4 formas de treinar                                                 |
-| 6   | Estrutura            | `#estrutura`   | ink                                | Mostrar o espaço e os diferenciais                                             |
-| 7   | Depoimentos          | `#depoimentos` | branco                             | Prova social com foco em pertencimento                                         |
-| 8   | Planos               | `#planos`      | mist                               | Converter: 3 planos, um recomendado                                            |
-| 9   | Perguntas frequentes | `#faq`         | branco                             | Remover objeções (iniciante, horário, cancelamento) — **seção nova, opcional** |
-| 10  | CTA final            | —              | lima                               | Último convite emocional                                                       |
-| 11  | Contato              | `#contato`     | branco                             | Formulário + endereço + horários                                               |
-| 12  | Rodapé               | —              | ink                                | Navegação, redes e aviso de projeto fictício                                   |
+| #   | Seção                | Âncora         | Fundo                              | Objetivo                                                                      |
+| --- | -------------------- | -------------- | ---------------------------------- | ----------------------------------------------------------------------------- |
+| 1   | Navbar               | —              | branco (transparente sobre o hero) | Orientar e manter o CTA sempre à mão                                          |
+| 2   | Hero                 | `#inicio`      | ink                                | Em 5 segundos: academia + comunidade + ação                                   |
+| 3   | Manifesto            | `#sobre`       | branco                             | Explicar o "porquê": resultado vem, pertencimento fica                        |
+| 4   | Comunidade           | `#comunidade`  | mist                               | Provar a comunidade: números, rituais, fotos de grupo                         |
+| 5   | Modalidades          | `#modalidades` | branco                             | Mostrar as 4 formas de treinar                                                |
+| 6   | Estrutura            | `#estrutura`   | ink                                | Mostrar o espaço e os diferenciais                                            |
+| 7   | Depoimentos          | `#depoimentos` | branco                             | Prova social com foco em pertencimento                                        |
+| 8   | Planos               | `#planos`      | mist                               | Converter: 3 planos, um recomendado                                           |
+| 9   | Perguntas frequentes | `#faq`         | branco                             | Remover objeções (iniciante, horário, cancelamento) — **aprovada na Etapa 9** |
+| 10  | CTA final            | `#cta`         | lima                               | Último convite emocional                                                      |
+| 11  | Contato              | `#contato`     | branco                             | Formulário + endereço + horários                                              |
+| 12  | Rodapé               | —              | ink                                | Navegação, redes e aviso de projeto fictício                                  |
 
 O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → branco → mist → branco → lima → branco → ink), seguindo o design system.
 
@@ -79,7 +79,7 @@ O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → bra
   1. **Treinão de sábado** — Uma aula aberta, todo sábado de manhã, para todos os níveis. Pode trazer quem você quiser.
   2. **Desafio do mês** — Uma meta coletiva por mês. A academia inteira soma junto no placar.
   3. **Café pós-treino** — Toda sexta, depois da última aula da manhã. O treino acaba, a conversa continua.
-- **Legenda da galeria:** Momentos reais de quem treina junto. _(fotos na Etapa 3)_
+- **Legenda da galeria:** Momentos de quem treina junto. _(sem "reais": as fotos são de banco de imagens)_
 
 ## 5. Modalidades
 
@@ -137,7 +137,7 @@ O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → bra
 
 - **Nota:** Planos mensais, sem fidelidade. No plano anual, 15% de desconto.
 
-## 9. Perguntas frequentes _(seção nova — pode ser removida)_
+## 9. Perguntas frequentes
 
 - **Título:** Ficou alguma dúvida?
 
@@ -170,6 +170,9 @@ O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → bra
 | Melhor período          | seleção: Manhã · Tarde · Noite                                                                  | Não         | —                                            |
 | Mensagem                | texto longo                                                                                     | Não         | —                                            |
 
+- **Placeholders:** Nome "Como você gosta de ser chamado" · WhatsApp "(31) 90000-0000" · E-mail "voce@email.com" · seleções "Selecione" · Mensagem "Quer contar algo pra gente?"
+- **Rótulo dos campos opcionais:** (opcional)
+- **Aviso quando há erros:** Revise os campos destacados para continuar.
 - **Botão:** Quero minha aula experimental / enviando: "Enviando…"
 - **Sucesso:** **Pronto, você está na lista!** Como este é um projeto de portfólio, nenhuma mensagem foi enviada de verdade — mas, se fosse, a gente te chamaria no WhatsApp ainda hoje.
 
@@ -184,10 +187,13 @@ O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → bra
 ## 12. Rodapé
 
 - **Logo** + frase: Mais forte quando é junto.
-- **Links:** os mesmos da navbar
+- **Títulos das colunas:** Navegue · Fale com a gente
+- **Links:** os mesmos da navbar · Ver portfólio · Voltar ao topo
 - **Redes:** Instagram · YouTube · TikTok — ícones apontando para `#` (perfis não existem)
 - **Legal:** © 2026 +Fit. Academia fictícia — projeto de portfólio desenvolvido por Vinicius.
-- **Link do portfólio:** `TODO: confirmar` (GitHub `Kamay164` ou site pessoal)
+- **Créditos:** Fotografias de fotógrafos do Unsplash. Depoimentos, números e contatos são fictícios.
+- **Acessibilidade (só leitores de tela/teclado):** "Pular para o conteúdo" · "(abre em nova aba)" · Instagram/YouTube/TikTok da +Fit
+- **Link do portfólio:** Ver portfólio → https://github.com/Kamay164
 
 ---
 
@@ -198,6 +204,6 @@ O ritmo alterna claro/escuro (ink → branco → mist → branco → ink → bra
 
 ## Pendências
 
-- [ ] Confirmar o link de portfólio do rodapé.
-- [ ] Aprovar a seção nova de Perguntas frequentes (ou remover).
-- [ ] Ícones de redes sociais: a Lucide não tem mais logos de marca — usar SVGs simples próprios na Etapa 4.
+- [x] Link de portfólio do rodapé: GitHub `Kamay164` (Etapa 9).
+- [x] Perguntas frequentes: aprovada (Etapa 9).
+- [x] Ícones de redes sociais: SVGs simples próprios (`SocialIcon`), feitos na Etapa 4.

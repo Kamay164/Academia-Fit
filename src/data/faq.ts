@@ -1,6 +1,6 @@
 import type { SectionIntro } from './types'
 
-/** Seção nova proposta na Etapa 2 — pode ser removida se não for aprovada. */
+/** Perguntas frequentes (seção proposta na Etapa 2 e aprovada na Etapa 9). */
 export const faq: SectionIntro & { items: { question: string; answer: string }[] } = {
   id: 'faq',
   eyebrow: 'Perguntas frequentes',

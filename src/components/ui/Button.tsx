@@ -14,6 +14,11 @@ interface CommonProps {
   /** Mostra a seta à direita. */
   arrow?: boolean
   fullWidth?: boolean
+  /**
+   * Deixa o texto quebrar em duas linhas quando não cabe (ex.: botão longo num cartão estreito
+   * em 320px). Sem isso o texto fica numa linha só.
+   */
+  wrap?: boolean
   className?: string
   children: ReactNode
 }
@@ -30,7 +35,7 @@ type NativeButtonProps = CommonProps & { href?: undefined } & Omit<
 export type ButtonProps = LinkProps | NativeButtonProps
 
 const base =
-  'group inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition duration-200 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
+  'group inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition duration-200 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50'
 
 const variants: Record<Tone, Record<Variant, string>> = {
   light: {
@@ -60,19 +65,27 @@ export function Button(props: ButtonProps) {
     size = 'md',
     arrow = false,
     fullWidth = false,
+    wrap = false,
     className,
     children,
     ...rest
   } = props
 
-  const classes = cn(base, variants[tone][variant], sizes[size], fullWidth && 'w-full', className)
+  const classes = cn(
+    base,
+    variants[tone][variant],
+    sizes[size],
+    wrap ? 'text-center leading-snug text-balance' : 'whitespace-nowrap',
+    fullWidth && 'w-full',
+    className,
+  )
   const content = (
     <>
       {children}
       {arrow && (
         <ArrowRight
           aria-hidden="true"
-          className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+          className="size-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
         />
       )}
     </>

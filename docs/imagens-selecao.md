@@ -1,5 +1,7 @@
 # +Fit — Seleção de imagens (Etapa 3)
 
+> **Atualização (Etapa 9):** as fotos da Estrutura listadas abaixo foram substituídas por 5 fotos escolhidas pelo Vinicius (veja `docs/creditos-imagens.md`). Este arquivo fica como registro da curadoria original.
+
 > Todas as fotos abaixo foram verificadas na página do Unsplash como **"Free to use under the Unsplash License"**.
 > **Descartadas por serem Unsplash+ (pagas):** `OFKBOZPYXew`, `vCPRAwU42GA`, `zjU6FpUDZsM`, `1JC5t4ruMkw`, `ypKf8jEW07A`, `R_WOn1Vvvqw`, `Oz5v6yT6sm4` e todas as marcadas "Getty Images".
 > Nenhuma foto foi vista visualmente por quem montou esta lista — a escolha vem de título, tags e metadados. **A revisão visual acontece quando os arquivos chegarem** (veja "Critérios").
@@ -75,7 +77,7 @@ Vou olhar cada foto e recusar as que:
 | Hero                  | 16:9 (recorte pela região do rosto/ação) | 768 · 1280 · 1920 | WebP    |
 | Galeria da comunidade | 4:3 (a retrato `comunidade-5` em 3:4)    | 600 · 1000        | WebP    |
 | Modalidades           | 4:5                                      | 480 · 800         | WebP    |
-| Estrutura             | 16:10                                    | 640 · 1100        | WebP    |
+| Estrutura             | 16:10                                    | 640 · 1100 · 1600 | WebP    |
 
 - Meta: nenhuma imagem acima de ~250 KB na maior largura.
 - Nomes finais em `src/assets/images/` (ex.: `hero-1280.webp`) e dados em `src/data/images.ts` com `alt` descritivo, autor e link.

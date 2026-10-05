@@ -15,16 +15,14 @@ export function useReveal() {
 
     const show = (el: HTMLElement) => {
       el.dataset.reveal = 'in'
-      el.addEventListener(
-        'transitionend',
-        (event) => {
-          if (event.target === el && event.propertyName === 'opacity') {
-            el.removeAttribute('data-reveal')
-            el.style.removeProperty('--reveal-delay')
-          }
-        },
-        { once: false },
-      )
+      // `once` não serve: transições de filhos (hover etc.) também disparam transitionend aqui.
+      const done = (event: TransitionEvent) => {
+        if (event.target !== el || event.propertyName !== 'opacity') return
+        el.removeAttribute('data-reveal')
+        el.style.removeProperty('--reveal-delay')
+        el.removeEventListener('transitionend', done)
+      }
+      el.addEventListener('transitionend', done)
     }
 
     const observer = new IntersectionObserver(

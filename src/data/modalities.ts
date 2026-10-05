@@ -2,8 +2,11 @@ import { Bike, Dumbbell, Flame, Swords } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import type { SectionIntro } from './types'
 
+/** Também é a chave da foto em `modalityPhotos` (images.ts). */
+export type ModalityId = 'musculacao' | 'funcional' | 'coletivas' | 'lutas'
+
 export interface Modality {
-  id: string
+  id: ModalityId
   icon: LucideIcon
   name: string
   tag: string

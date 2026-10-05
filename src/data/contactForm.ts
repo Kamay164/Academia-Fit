@@ -33,10 +33,12 @@ export const contactForm = {
     },
     message: {
       label: 'Mensagem',
-      placeholder: 'Quer contar algo pra gente? (opcional)',
+      placeholder: 'Quer contar algo pra gente?',
       required: false,
     },
   },
+  /** Aviso no topo do formulário quando há erros (anunciado por leitores de tela). */
+  errorSummary: 'Revise os campos destacados para continuar.',
   errors: {
     name: 'Conta pra gente como você se chama.',
     whatsapp: 'Digite um WhatsApp válido, com DDD.',

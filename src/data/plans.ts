@@ -12,7 +12,7 @@ export interface Plan {
   badge?: string
 }
 
-export const plans: SectionIntro & { items: Plan[]; note: string } = {
+export const plans: SectionIntro & { items: Plan[]; perMonth: string; note: string } = {
   id: 'planos',
   eyebrow: 'Planos',
   title: { text: 'Escolha seu plano.', highlight: 'A comunidade vem junto.' },
@@ -61,6 +61,7 @@ export const plans: SectionIntro & { items: Plan[]; note: string } = {
       cta: { label: 'Quero o Total', href: '#contato' },
     },
   ],
+  perMonth: '/mês',
   note: 'Planos mensais, sem fidelidade. No plano anual, 15% de desconto.',
 }
 

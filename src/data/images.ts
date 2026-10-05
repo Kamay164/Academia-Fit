@@ -1,11 +1,14 @@
 /**
  * Fotos otimizadas (Etapa 3). Arquivos em src/assets/images, gerados em várias larguras (WebP).
- * Todas do Unsplash (Unsplash License). Créditos completos: docs/creditos-imagens.md
+ * Licença Unsplash; autores e edições em docs/creditos-imagens.md (mantenha os dois em dia).
  *
- * Como usar num componente:
- *   <img src={p.src} srcSet={p.srcSet} sizes="..." width={p.width} height={p.height} alt={p.alt} />
- * `width`/`height` evitam salto de layout; `sizes` depende do layout e é definido em cada componente.
+ * Nos componentes, use `<PhotoImage photo={...} sizes="..." />` (src/components/ui): ele já
+ * aplica srcSet, width/height (sem salto de layout) e loading="lazy". `sizes` depende do layout
+ * e é definido em cada seção.
  */
+
+import { heroImage } from './heroImage'
+import type { ModalityId } from './modalities'
 
 const urls = import.meta.glob<string>('../assets/images/*.webp', {
   eager: true,
@@ -20,7 +23,7 @@ export interface PhotoCredit {
 
 export interface Photo {
   alt: string
-  /** Maior versão — fallback do <img>. */
+  /** Plano B para navegadores sem srcset (uma versão média). */
   src: string
   srcSet: string
   /** Dimensões da maior versão. */
@@ -61,16 +64,15 @@ function photo(
 
 export const heroPhoto = photo(
   'hero',
-  [768, 1280, 1920],
+  heroImage.widths,
   [3, 2],
   'Turma de aula em grupo erguendo elásticos acima da cabeça, em sincronia, num estúdio com luz azulada',
   unsplash('Geert Pieters', '3RnkZpDqsEI'),
 )
 
 /**
- * Galeria da comunidade — 5 fotos por enquanto.
- * Falta a "comunidade-6" (três amigas na selfie, Mina Rad, CjYhWeAXB4c): ao baixar, salve em
- * imagens-originais/ e peça a otimização, ou adicione aqui com photo('comunidade-6', ...).
+ * Galeria da comunidade — 5 fotos. A ordem importa: o mosaico de Comunidade.tsx (`tiles`)
+ * espera retrato, paisagem, paisagem, paisagem, retrato.
  */
 export const communityPhotos: Photo[] = [
   photo(
@@ -110,8 +112,8 @@ export const communityPhotos: Photo[] = [
   ),
 ]
 
-/** Chaves iguais aos `id` de `modalities.items` em modalities.ts. */
-export const modalityPhotos: Record<'musculacao' | 'funcional' | 'coletivas' | 'lutas', Photo> = {
+/** Uma foto por modalidade, pela mesma chave de `modalities.items` (modalities.ts). */
+export const modalityPhotos: Record<ModalityId, Photo> = {
   musculacao: photo(
     'modalidade-musculacao',
     [480, 800],
@@ -143,44 +145,45 @@ export const modalityPhotos: Record<'musculacao' | 'funcional' | 'coletivas' | '
 }
 
 /**
- * Estrutura — 5 fotos enviadas pelo Vinicius (autores a confirmar, veja docs/creditos-imagens.md).
- * Marcas de equipamentos seguem visíveis.
+ * Estrutura — 5 fotos enviadas pelo Vinicius, em ordem: halteres (larga, no topo), plataforma de
+ * levantamento, pista vermelha, máquinas e ringue. Autores das fotos 1 a 4 a confirmar.
  */
-const FACILITY_CREDIT: PhotoCredit = { author: 'Autor a confirmar', url: 'https://unsplash.com' }
+const pendingCredit: PhotoCredit = { author: 'Autor a confirmar', url: 'https://unsplash.com' }
+
 export const facilityPhotos: Photo[] = [
   photo(
     'estrutura-1',
     [640, 1100, 1600],
     [16, 10],
-    'Salão de musculação amplo com máquinas, escadas e janelas altas de vidro',
-    FACILITY_CREDIT,
+    'Salão de musculação com fileiras de halteres, bancos ajustáveis e luzes no teto escuro',
+    pendingCredit,
   ),
   photo(
     'estrutura-2',
     [640, 1100, 1600],
     [16, 10],
-    'Área de halteres com rack de pesos, bancos e espelhos ao fundo',
-    FACILITY_CREDIT,
+    'Plataforma de levantamento olímpico com barras, anilhas coloridas e racks junto a uma parede de madeira',
+    pendingCredit,
   ),
   photo(
     'estrutura-3',
     [640, 1100, 1600],
     [16, 10],
-    'Pista de grama sintética vermelha com bicicletas de ar e equipamentos de funcional',
-    FACILITY_CREDIT,
+    'Vista do alto de uma pista de grama sintética vermelha com trenó, bicicletas de ar e aparelhos de funcional',
+    pendingCredit,
   ),
   photo(
     'estrutura-4',
     [640, 1100, 1600],
     [16, 10],
-    'Plataforma de levantamento olímpico com barras e anilhas',
-    FACILITY_CREDIT,
+    'Área de máquinas com aparelhos de musculação, rack de halteres e escada metálica sob o teto industrial',
+    pendingCredit,
   ),
   photo(
     'estrutura-5',
     [640, 1100, 1600],
     [16, 10],
     'Ringue de boxe com cordas vermelhas e pretas, sacos de pancada e pista de grama sintética ao fundo',
-    FACILITY_CREDIT,
+    unsplash('Victor Marques', 'l1qp7UUH8oE'),
   ),
 ]

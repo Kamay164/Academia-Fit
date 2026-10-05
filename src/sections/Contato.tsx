@@ -76,7 +76,6 @@ function MapIllustration() {
 export function Contato() {
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
-  const formRef = useRef<HTMLFormElement>(null)
   const successRef = useRef<HTMLDivElement>(null)
   const timer = useRef<number>(undefined)
 
@@ -107,6 +106,7 @@ export function Contato() {
 
   const { address, hours, whatsapp, email } = contact
   const optional = contactForm.optionalLabel
+  const hasErrors = Object.values(errors).some(Boolean)
 
   return (
     <Section id={contactSection.id} labelledBy="contato-titulo">
@@ -134,17 +134,20 @@ export function Contato() {
                 {hours.map(({ days, time }) => (
                   <div key={days} className="col-span-2 grid grid-cols-subgrid">
                     <dt className="text-moss">{days}</dt>
-                    <dd>{time}</dd>
+                    <dd className="whitespace-nowrap">{time}</dd>
                   </div>
                 ))}
               </dl>
             </li>
             <li className="flex gap-4">
               <MessageCircle aria-hidden="true" className="text-lime-deep mt-0.5 size-6 shrink-0" />
-              <span>WhatsApp: {whatsapp.label}</span>
+              <span>
+                {whatsapp.name}: {whatsapp.label}
+              </span>
             </li>
-            <li className="flex gap-4">
-              <Mail aria-hidden="true" className="text-lime-deep mt-0.5 size-6 shrink-0" />
+            {/* Link com 44px de altura: o ícone centraliza com o texto, não com o topo da linha */}
+            <li className="flex items-center gap-4">
+              <Mail aria-hidden="true" className="text-lime-deep size-6 shrink-0" />
               <a
                 href={email.href}
                 className="inline-flex min-h-11 items-center underline underline-offset-4"
@@ -158,7 +161,10 @@ export function Contato() {
           </div>
         </div>
 
-        <div className="bg-mist min-w-0 rounded-xl p-6 sm:p-10 lg:col-span-7" {...reveal(120)}>
+        <div
+          className="bg-mist min-w-0 rounded-xl p-4 sm:p-10 lg:col-span-7 lg:self-start"
+          {...reveal(120)}
+        >
           {status === 'success' ? (
             <div
               ref={successRef}
@@ -174,14 +180,13 @@ export function Contato() {
             </div>
           ) : (
             <form
-              ref={formRef}
               onSubmit={handleSubmit}
               noValidate
               className="grid grid-cols-1 gap-6 sm:grid-cols-2"
             >
-              {Object.keys(errors).some((k) => errors[k as FieldName]) && (
+              {hasErrors && (
                 <p role="alert" className="text-error font-semibold sm:col-span-2">
-                  Revise os campos destacados para continuar.
+                  {contactForm.errorSummary}
                 </p>
               )}
               <div className="sm:col-span-2">
@@ -190,7 +195,7 @@ export function Contato() {
                   label={fields.name.label}
                   placeholder={fields.name.placeholder}
                   autoComplete="name"
-                  required
+                  required={fields.name.required}
                   error={errors.name}
                   onChange={() => clearError('name')}
                 />
@@ -202,7 +207,7 @@ export function Contato() {
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
-                required
+                required={fields.whatsapp.required}
                 error={errors.whatsapp}
                 onChange={(e) => {
                   e.currentTarget.value = maskPhone(e.currentTarget.value)
@@ -224,7 +229,7 @@ export function Contato() {
                 label={fields.modality.label}
                 placeholder={fields.modality.placeholder}
                 options={fields.modality.options}
-                required
+                required={fields.modality.required}
                 error={errors.modality}
                 onChange={() => clearError('modality')}
               />
@@ -244,7 +249,16 @@ export function Contato() {
                 />
               </div>
               <div className="sm:col-span-2">
-                <Button type="submit" size="lg" arrow disabled={status === 'loading'} fullWidth>
+                {/* No celular a seta sai para o texto caber numa linha (a partir de 360px) */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  arrow
+                  wrap
+                  fullWidth
+                  disabled={status === 'loading'}
+                  className="max-sm:[&>svg]:hidden"
+                >
                   {status === 'loading' ? contactForm.submit.loading : contactForm.submit.idle}
                 </Button>
               </div>

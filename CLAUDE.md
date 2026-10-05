@@ -51,7 +51,7 @@ Criar uma **landing page moderna para a +Fit**, uma academia **fictícia**, dest
 
 **Dados de negócio:** o Vinicius autorizou dados **fictícios e plausíveis** (preços, horários, números, depoimentos), já definidos em `src/data/`. Não criar dados novos fora deles sem perguntar. Perfis de redes sociais apontam para `#`; nada deve apontar para pessoas, endereços ou contas reais.
 
-**Ainda não definido (perguntar, não inventar):** link de portfólio do rodapé, biblioteca de animação, domínio próprio.
+**Ainda não definido (perguntar, não inventar):** domínio próprio. (Link do portfólio no rodapé: GitHub `Kamay164`; animação: só CSS, sem biblioteca.)
 
 ## 4. Tecnologias
 
@@ -136,7 +136,7 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 - **Só fotos "Free to use under the Unsplash License".** Descartar qualquer uma "Unsplash+" ou "Getty Images".
 - **Entregáveis:** imagens convertidas para `.webp` em tamanhos responsivos, `src/data/images.ts` (com `alt`, autor, link) e `docs/creditos-imagens.md` (autor, link, licença).
 - **Como usar as fotos nos componentes:** importar de `src/data/images.ts` (`heroPhoto`, `communityPhotos`, `modalityPhotos`, `facilityPhotos`) e renderizar `<img src srcSet sizes width height alt loading="lazy">`. Somente a foto do **hero** (LCP) não usa `loading="lazy"` e leva `fetchpriority="high"`. Não importar arquivos de `imagens-originais/`.
-- **Fotos faltando** (o Vinicius baixa depois): `comunidade-6` e ringue. Os componentes devem funcionar com 5 fotos na galeria e 3 na estrutura, sem buracos no layout.
+- **Fotos:** a galeria da Comunidade usa 5 fotos (decidido na Etapa 9: sem `comunidade-6`) e a Estrutura usa as 5 fotos enviadas pelo Vinicius (inclui o ringue). Os componentes funcionam com esses números sem buracos no layout.
 - **Edição de fotos:** só recorte, redimensionamento e desfoque pontual de placas/marcas ao fundo — sem montagem nem alteração de pessoas. Preferir rejeitar fotos com logo legível de marca real a editá-las.
 - **Verificação:** toda imagem tem crédito e licença registrados; nenhuma imagem > ~250 KB na maior resolução usada; fotos coerentes com "grupo/comunidade".
 - **Modelo:** Sonnet · `medium` para curadoria; Haiku · `low` para conversão em lote e geração da tabela de créditos.
@@ -228,14 +228,15 @@ Comandos úteis: `/model <alias>` e `/effort <nível>`.
 | 0 Setup | ✅ Concluída |
 | 1 Identidade visual | ✅ Concluída (Direção B · Juntos) |
 | 2 Conteúdo e copy | ✅ Concluída |
-| 3 Imagens | ⏳ Entregue (13 fotos otimizadas), aguardando aprovação · pendentes: `comunidade-6` e foto de ringue, que o Vinicius baixa depois |
-| 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks, `Preview.tsx` temporário), aguardando aprovação · `src/styleguide/` deve ser removido à mão (`git rm -r src/styleguide`) |
+| 3 Imagens | ⏳ Entregue (15 fotos; Estrutura trocada pelas 5 fotos do Vinicius), aguardando aprovação · pendente: autores das fotos 1–4 da Estrutura |
+| 4 Layout base e UI | ⏳ Entregue (componentes ui, Navbar, Footer, hooks), aguardando aprovação · `src/styleguide/` e `Preview.tsx` já removidos |
 | 5A Hero e Manifesto | ⏳ Entregue (`src/sections/Hero.tsx`, `Manifesto.tsx`), aguardando aprovação visual |
 | 5B Demais seções | ⏳ Entregue (7 seções + FAQ, `Preview.tsx` removido), aguardando aprovação |
 | 6 Animações | ⏳ Entregue (revelação no scroll, hero animado, contadores, hovers; sem biblioteca), aguardando aprovação |
 | 7 Responsivo e a11y | ⏳ Entregue (auditoria 320–1920 px, axe 0 violações, Lighthouse A11y 100), aguardando aprovação |
 | 8 Performance e SEO | ⏳ Entregue (Lighthouse mobile 92/100/100/100, desktop 100 em tudo; meta/OG/preloads/robots/sitemap), aguardando aprovação |
-| 9 – 10 | Não iniciadas |
+| 9 Revisão final | ⏳ Entregue (revisão de código, visual e de copy; correções listadas em `docs/design-system.md` §14), aguardando aprovação |
+| 10 README + deploy | Não iniciada |
 
 ## 12. Guia rápido de modelos e esforço
 
