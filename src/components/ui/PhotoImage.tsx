@@ -10,13 +10,17 @@ interface PhotoImageProps {
   className?: string
 }
 
-/** `<img>` responsivo com srcSet, dimensões (sem salto de layout) e carregamento preguiçoso. */
+/**
+ * `<img>` responsivo com srcSet, dimensões (sem salto de layout) e carregamento preguiçoso.
+ * `srcSet` e `sizes` vêm antes de `src` de propósito: o React aplica os atributos na ordem, e com
+ * `src` primeiro o navegador baixaria a maior versão antes de escolher a certa.
+ */
 export function PhotoImage({ photo, sizes, loading = 'lazy', className }: PhotoImageProps) {
   return (
     <img
-      src={photo.src}
       srcSet={photo.srcSet}
       sizes={sizes}
+      src={photo.src}
       width={photo.width}
       height={photo.height}
       alt={photo.alt}

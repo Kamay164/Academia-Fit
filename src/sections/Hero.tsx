@@ -31,9 +31,9 @@ export function Hero() {
     >
       <div className="absolute inset-0 -z-10 lg:left-[36%]">
         <img
-          src={heroPhoto.src}
           srcSet={heroPhoto.srcSet}
           sizes="(min-width: 1024px) 64vw, 100vw"
+          src={heroPhoto.src}
           width={heroPhoto.width}
           height={heroPhoto.height}
           alt={heroPhoto.alt}

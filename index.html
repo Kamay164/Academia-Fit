@@ -2,12 +2,26 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>+Fit — Academia</title>
+    <title>+Fit — Academia em Belo Horizonte</title>
+    <!--
+      Descrição, Open Graph, Twitter Card, canonical, preloads e CSS crítico são injetados
+      no build por `vite.config.ts` (plugin "maisfit-head"), a partir de src/data/site.ts.
+    -->
+    <meta name="theme-color" content="#0e1311" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        A +Fit precisa de JavaScript para exibir esta página. Ative o JavaScript no navegador e
+        recarregue.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

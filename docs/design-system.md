@@ -211,3 +211,16 @@ Sem biblioteca: CSS + `IntersectionObserver`. Só `opacity` e `transform` são a
 - Links que abrem em nova aba avisam "(abre em nova aba)" para leitores de tela.
 - Contraste do texto do hero sobre a foto medido por amostragem de pixels: ≥ 5:1 em 320–768 px; no desktop o texto fica sobre o gradiente grafite e o card do ritual tem fundo `ink/80`.
 - Movimento reduzido: animações, transições **e atrasos** zerados (sem isso, o atraso escondia elementos por até meio segundo).
+
+## 13. Performance e SEO (Etapa 8)
+
+**Medido** (Lighthouse sobre o build de produção, `vite preview`): celular — Desempenho 92, Acessibilidade 100, Boas práticas 100, SEO 100; desktop — 100 / 100 / 100 / 100. CLS 0, TBT ≤ 30 ms. No celular com rede lenta simulada o LCP fica em ~3 s (limitado pelo JavaScript do React, que renderiza a página no cliente).
+
+- **Cabeçalho gerado no build** (`vite.config.ts`, plugin `maisfit-head`): título e descrição vêm de `src/data/site.ts` (`site.seo`); Open Graph, Twitter Card, `robots`, canonical e `og:url`.
+- **Endereço público:** o plugin lê `SITE_URL` (defina na Vercel se usar domínio próprio) ou `VERCEL_PROJECT_PRODUCTION_URL` (variável de sistema da Vercel). Sem nenhuma das duas, canonical/sitemap são omitidos e `og:image` fica relativo (a prévia em redes sociais só funciona com URL absoluta).
+- **Gerados no build:** `robots.txt` e `sitemap.xml` (só com endereço conhecido).
+- **Preloads:** foto do hero (`imagesrcset`/`imagesizes` iguais aos do `<img>`, `fetchpriority="high"`) e as duas fontes principais (latin). O CSS é inserido inline no HTML (sem requisição bloqueante).
+- **Imagens:** WebP em várias larguras, `loading="lazy"` abaixo da dobra (hero é `eager` com prioridade alta), `width`/`height` em todas. `srcSet` e `sizes` são passados antes de `src` no JSX (o React aplica os atributos na ordem; com `src` primeiro o navegador baixaria a maior versão). O `src` de plano B é a versão média.
+- **Ícones e compartilhamento:** `public/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-192/512.png`, `icon-maskable-512.png`, `site.webmanifest`, `og-image.jpg` (1200×630, gerada a partir do hero e da marca).
+- **Limitação conhecida:** a página é renderizada no cliente (SPA). Buscadores modernos executam JavaScript; pré-renderização estática ficaria fora do escopo do projeto.
+- Sem dados estruturados (JSON-LD) de propósito: o endereço, o telefone e o horário são fictícios.

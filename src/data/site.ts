@@ -1,4 +1,4 @@
-import type { Link } from './types'
+import type { Link } from './types.ts'
 
 /** Dados gerais da marca. TODOS FICTÍCIOS — projeto de portfólio. */
 export const site = {

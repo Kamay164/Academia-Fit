@@ -47,9 +47,11 @@ function photo(
     return url
   }
   const largest = widths[widths.length - 1]
+  // `src` é só o plano B de navegadores sem srcset: uma versão média, não a maior.
+  const fallback = widths.length > 2 ? widths[1] : largest
   return {
     alt,
-    src: urlOf(largest),
+    src: urlOf(fallback),
     srcSet: widths.map((w) => `${urlOf(w)} ${w}w`).join(', '),
     width: largest,
     height: Math.round((largest * ratio[1]) / ratio[0]),
